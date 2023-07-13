@@ -1,0 +1,25 @@
+@import "./Variables.scss";
+
+* {
+  font-family: $main-font;
+}
+
+h1,
+h2,
+li,
+button,
+input {
+  font-family: $title-font;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  @include button;
+}
+
+button:hover {
+  @include button-on-hover;
+}

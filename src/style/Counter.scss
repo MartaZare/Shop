@@ -1,0 +1,23 @@
+@import "./Variables.scss";
+
+.counter {
+  @include flex-row-center;
+  gap: 10px;
+  button {
+    min-width: 35%;
+    line-height: 30px;
+    font-size: 40px;
+  }
+}
+
+.add-product-btn {
+  width: 50px;
+  margin: 20px;
+  font-size: 30px;
+  font-family: $title-font;
+}
+
+.counter > button:hover,
+.add-product-btn:hover {
+  text-shadow: 0 0 7px $lighter-glow-color;
+}

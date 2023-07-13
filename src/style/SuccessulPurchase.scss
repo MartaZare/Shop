@@ -1,0 +1,20 @@
+@import "./Variables.scss";
+
+.successful-checkout {
+  @include card;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  height: 280px;
+  width: 600px;
+  background-color: rgb(162, 200, 162);
+  border: solid 5px green;
+  color: green;
+  img {
+    width: 160px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+}

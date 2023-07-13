@@ -1,0 +1,26 @@
+@import url("../style/Variables.css");
+.all-cards-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 50px;
+  gap: 30px;
+  justify-items: center;
+  max-width: 1300px;
+}
+
+@media (min-width: 800px) {
+  .all-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .all-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}/*# sourceMappingURL=AllCards.css.map */

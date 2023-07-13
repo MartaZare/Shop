@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+
+//Fonts
+$main-font: "Caveat", cursive;
+$title-font: "Macondo", cursive;
+
+//Colors
+$background-main-color: black;
+$glow-color: #f8bb22;
+$lighter-glow-color: #f6c74f;
+$text-accent-color: #cb9006;
+
+//Spacing
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//Elements
+@mixin button {
+  min-width: 100px;
+  max-width: 40%;
+  margin: 10px;
+  padding: 5px;
+  font-family: "Macondo", cursive;
+  font-size: 20px;
+  color: white;
+  border-radius: 20px;
+  border: solid 2px $lighter-glow-color;
+  background-color: $lighter-glow-color;
+}
+
+@mixin button-on-hover {
+  border: solid 2px #ffffff;
+  box-shadow: 0px 0px 15px 5px #efbe42;
+  color: #ffffff;
+}
+
+@mixin card {
+  @include flex-column-center;
+  justify-content: space-between;
+  width: 350px;
+  height: 450px;
+  padding: 30px;
+  max-width: 100%;
+  background-color: #edd9b7;
+  border-radius: 20px;
+  border: solid 5px rgb(45, 44, 44);
+  box-shadow: 0px 0px 15px 5px $glow-color;
+  font-family: $title-font;
+}

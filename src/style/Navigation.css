@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+.main-navigation {
+  margin-top: 10px;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 25px;
+  padding: 20px;
+  margin-left: 20px;
+  list-style-type: none;
+  font-size: 25px;
+}
+.nav-list .nav-link {
+  font-family: "Macondo", cursive;
+  color: white;
+  text-transform: uppercase;
+}
+.nav-list .nav-link.active {
+  color: #f8bb22;
+  text-shadow: 0 0 7px #f6c74f;
+}/*# sourceMappingURL=Navigation.css.map */

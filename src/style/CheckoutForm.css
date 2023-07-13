@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  /* HIDE RADIO */
+  /* IMAGE STYLES */
+}
+form label {
+  font-size: 23px;
+}
+form input {
+  width: 100%;
+  margin: 3px;
+  font-family: "Macondo", cursive;
+  padding: 8px;
+  border: none;
+  background-color: #ececea;
+  border-radius: 20px;
+}
+form h2 {
+  font-family: "Caveat", cursive;
+  font-weight: 200;
+  font-size: 23px;
+  margin: 4px;
+}
+form h2:after {
+  content: none;
+}
+form h3 {
+  color: rgb(225, 13, 13);
+}
+form .input-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+form .payments-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+form .payments-checkbox img {
+  width: 60px;
+}
+form .payments-checkbox .payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+}
+form .payments-checkbox .payment:hover {
+  background-color: #f8e779;
+  box-shadow: 0px 0px 15px 5px #f3d74b;
+}
+form .payments-checkbox .payment > h2 {
+  font-size: 20px;
+  margin: 5px;
+}
+form .payments-checkbox .payment > h2:after {
+  content: none;
+}
+form [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+form [type=radio] + img {
+  cursor: pointer;
+  width: 50px;
+}/*# sourceMappingURL=CheckoutForm.css.map */

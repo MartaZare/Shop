@@ -1,0 +1,25 @@
+@import url("../style/Variables.css");
+
+.card {
+  @include card;
+
+  img {
+    width: 160px;
+  }
+  h1 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  h2:after {
+    content: " €";
+  }
+  p {
+    font-size: 20px;
+    line-height: 20px;
+    font-family: $main-font;
+  }
+}
