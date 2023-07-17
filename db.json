@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "createdBy": "author",
+      "image": "images/crystal-ball.png",
+      "name": "Crystal Ball of Future",
+      "price": 99.99,
+      "description": "Learn what lies ahead with this Crystal Ball!"
+    },
+    {
+      "id": 2,
+      "createdBy": "author",
+      "image": "images/script.png",
+      "name": "Script of Elders",
+      "price": 1.99,
+      "description": "Sometimes to answer the question about the future we shall look in the past..."
+    },
+    {
+      "id": 3,
+      "createdBy": "author",
+      "image": "images/love.png",
+      "name": "Potion of Eternal Love",
+      "price": 14.99,
+      "description": "Make anyone fall in love with you with a blink of an eye (and a drop to a drink...)!"
+    },
+    {
+      "id": 4,
+      "createdBy": "author",
+      "image": "images/gems.png",
+      "name": "Cursed Gems",
+      "price": 39.99,
+      "description": "Join a lottery and see how the gem you chose will curse you!"
+    },
+    {
+      "id": 5,
+      "createdBy": "author",
+      "image": "images/mushroom.png",
+      "name": "Magical Mushrooms",
+      "price": 9.99,
+      "description": "Magic mushrooms from magical forest."
+    },
+    {
+      "id": 6,
+      "createdBy": "author",
+      "image": "images/poison.png",
+      "name": "Poison for Unloved",
+      "price": 4.99,
+      "description": "Poison for Unloved - easy solution for difficult problems!"
+    },
+    {
+      "id": 7,
+      "createdBy": "author",
+      "image": "images/tarot.png",
+      "name": "Tarot Cards",
+      "price": 99.99,
+      "description": "Learn what lies ahead with these tarot cards!"
+    },
+    {
+      "id": 8,
+      "createdBy": "author",
+      "image": "images/witch-broom.png",
+      "name": "Broom 2 in 1",
+      "price": 55.99,
+      "description": "Broom 2 in 1 for a Clean Flight! Perfect for cleaning and running from chores!"
+    },
+    {
+      "id": 9,
+      "createdBy": "author",
+      "image": "images/cat.png",
+      "name": "(Too Much) Talking Cat",
+      "price": 0.0,
+      "description": "Please take it away..."
+    },
+    {
+      "id": 10,
+      "createdBy": "author",
+      "image": "images/apple.png",
+      "name": "Poisoned Apple Delivery",
+      "price": 66.69,
+      "description": "A retired elderly queen will deliver the poisoned apple to your desired destination."
+    },
+    {
+      "id": 11,
+      "createdBy": "author",
+      "image": "images/toad.png",
+      "name": "Kiss Toad Prince Lotery",
+      "price": 11.5,
+      "description": "Ever wanted to marry a prince? Join the lottery and see if you kissed the One!"
+    },
+    {
+      "id": 12,
+      "createdBy": "author",
+      "image": "images/witch.png",
+      "name": "WItCH Uber Driver",
+      "price": 42.66,
+      "description": "Our lovely hundred-year-olds will be glad to transport you wherether it might be. For longer journey we recomend choosing Baba Yaga barrel or hut on chicken legs."
+    },
+    {
+      "id": 13,
+      "createdBy": "author",
+      "image": "images/sleep.png",
+      "name": "Insomnia Treatment",
+      "price": 75.5,
+      "description": "Get a good quality sleep, wherever and whenever you're ment to sleep well!"
+    },
+    {
+      "id": 14,
+      "createdBy": "author",
+      "image": "images/hand.png",
+      "name": "Palmistry",
+      "price": 399.0,
+      "description": "Sertified university professors will tell you what lies ahead."
+    },
+    {
+      "id": 15,
+      "createdBy": "author",
+      "image": "images/rabbit.png",
+      "name": "Magic Trick",
+      "price": 0.99,
+      "description": "Get a wonderfull magic trick, or get tricked?"
+    }
+  ]
+}

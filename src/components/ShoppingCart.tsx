@@ -1,21 +1,51 @@
 import { useEffect, useState } from "react";
-import ServiceData from "./ServiceData";
 import React from "react";
-import ProductsData from "./ProductsData";
 import Checkout from "./Checkout";
+import { API_URL } from "../other/Constants";
 
 interface ShoppingCartProps {
-  productsCount: number[];
-  serviceCount: number[];
   checkoutSuccessful: boolean;
   setCheckoutSuccessfull: (arg: boolean) => void;
+  productsInCart: Product[];
+  setProductsInCart: (arg: Product[]) => void;
 }
 
+type Product = {
+  id: number;
+  createdBy: string;
+  image: string;
+  name: string;
+  price: number;
+  description: string;
+};
+
 export function ShoppingCart(props: ShoppingCartProps) {
+  const {
+    checkoutSuccessful,
+    setCheckoutSuccessfull,
+    productsInCart,
+    setProductsInCart,
+  } = props;
+
   const [isVisibleCart, setIsVisibleCart] = useState(false);
   const [total, setTotal] = useState(0);
   const [isVisibleCheckoutField, setIsVisibleCheckoutField] = useState(false);
   const [isVisibleCheckoutBtn, setIsVisibleCheckoutBtn] = useState(false);
+  const [isVisibleProducts, setisVisibleProducts] = useState(false);
+
+  useEffect(() => {
+    if (productsInCart.length !== 0) {
+      setIsVisibleCheckoutBtn(true);
+      setTotal(0);
+      setisVisibleProducts(true);
+
+      let newTotal: number = 0;
+      productsInCart.map((product) => {
+        newTotal += product.price;
+        setTotal(newTotal);
+      });
+    }
+  }, [productsInCart, total]);
 
   function openCart() {
     setIsVisibleCart(true);
@@ -30,18 +60,14 @@ export function ShoppingCart(props: ShoppingCartProps) {
   }
 
   useEffect(() => {
-    let newTotal = 0;
-    for (let i = 0; i < ProductsData().length; i++) {
-      if (i < ServiceData().length) {
-        newTotal +=
-          ServiceData()[i].price * props.serviceCount[i] +
-          ProductsData()[i].price * props.productsCount[i];
-      } else if (i < ProductsData().length) {
-        newTotal += ProductsData()[i].price * props.productsCount[i];
-      }
+    if (checkoutSuccessful) {
+      setIsVisibleCart(false);
+      setIsVisibleCheckoutBtn(false);
+      setIsVisibleCheckoutField(false);
+      setTotal(0);
+      setProductsInCart([]);
     }
-    setTotal(newTotal);
-  }, [props.productsCount, props.serviceCount]);
+  }, [checkoutSuccessful]);
 
   useEffect(() => {
     if (total > 0) {
@@ -67,53 +93,32 @@ export function ShoppingCart(props: ShoppingCartProps) {
             onClick={closeCart}
           />
           <h1>Shopping Cart</h1>
-          {props.productsCount.map((item, i) => {
-            if (item !== 0) {
-              let productsArray = ProductsData();
-              return (
-                <>
-                  <React.Fragment key={i}>
-                    <div className="cart-item">
-                      <div className="cart-product">
-                        <img src={productsArray[i].image} alt="product"></img>
-                        <div>
-                          <p>{productsArray[i].name}</p>
-                          <p>x{item}</p>
+          {isVisibleProducts && (
+            <div className="items">
+              {productsInCart.map((product) => {
+                if (product) {
+                  return (
+                    <>
+                      <React.Fragment key={product.id}>
+                        <div className="cart-item">
+                          <div className="cart-product">
+                            <img src={product.image} alt="product" />
+                            <div>
+                              <p>{product.name}</p>
+                            </div>
+                          </div>
+                          <p className="cart-product-price">
+                            {Number(product.price.toFixed(2))}
+                          </p>
                         </div>
-                      </div>
-                      <p className="cart-product-price">
-                        {Number((productsArray[i].price * item).toFixed(2))}
-                      </p>
-                    </div>
-                  </React.Fragment>
-                </>
-              );
-            }
-          })}
+                      </React.Fragment>
+                    </>
+                  );
+                }
+              })}
+            </div>
+          )}
 
-          {props.serviceCount.map((item, i) => {
-            if (item !== 0) {
-              let servicesArray = ServiceData();
-              return (
-                <>
-                  <React.Fragment key={i}>
-                    <div className="cart-item">
-                      <div className="cart-product">
-                        <img src={servicesArray[i].image} alt="product"></img>
-                        <div>
-                          <p>{servicesArray[i].name}</p>
-                          <p>x{item}</p>
-                        </div>
-                      </div>
-                      <p className="cart-product-price">
-                        {Number((servicesArray[i].price * item).toFixed(2))}
-                      </p>
-                    </div>
-                  </React.Fragment>
-                </>
-              );
-            }
-          })}
           {isVisibleCheckoutBtn ? (
             <button
               type="submit"
@@ -131,8 +136,8 @@ export function ShoppingCart(props: ShoppingCartProps) {
           {isVisibleCheckoutField ? (
             <Checkout
               total={total}
-              checkoutSuccessful={props.checkoutSuccessful}
-              setCheckoutSuccessfull={props.setCheckoutSuccessfull}
+              checkoutSuccessful={checkoutSuccessful}
+              setCheckoutSuccessfull={setCheckoutSuccessfull}
               isVisibleCheckoutField={isVisibleCheckoutField}
               setIsVisibleCheckoutField={setIsVisibleCheckoutField}
               setIsVisible={setIsVisibleCart}

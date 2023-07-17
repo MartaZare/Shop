@@ -1,5 +1,17 @@
 # Getting Started
 
+Install database
+
+```
+npm install -g json-server
+```
+
+Run the database on localhost3000
+
+```
+npm run db
+```
+
 Install packages
 
 ```

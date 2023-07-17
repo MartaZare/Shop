@@ -17,24 +17,22 @@ export default function Checkout(props: CheckoutProps) {
   return (
     <>
       {props.isVisibleCheckoutField && (
-        <div className="checkout-content">
-          <div className="cart">
-            <img
-              src="images/close.png"
-              alt="product "
-              className="close-cart-button"
-              onClick={closeCheckout}
-            />
+        <div className="cart">
+          <img
+            src="images/close.png"
+            alt="product "
+            className="close-cart-button"
+            onClick={closeCheckout}
+          />
 
-            <h1>Order details</h1>
-            <div className="personal-info">
-              <CheckoutForm
-                total={props.total}
-                checkoutSuccessful={props.checkoutSuccessful}
-                setCheckoutSuccessfull={props.setCheckoutSuccessfull}
-                setIsVisible={props.setIsVisible}
-              />
-            </div>
+          <h1>Order details</h1>
+          <div className="personal-info">
+            <CheckoutForm
+              total={props.total}
+              checkoutSuccessful={props.checkoutSuccessful}
+              setCheckoutSuccessfull={props.setCheckoutSuccessfull}
+              setIsVisible={props.setIsVisible}
+            />
           </div>
         </div>
       )}

@@ -1,4 +1,4 @@
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 
 interface CheckoutFormProps {
   total: number;
@@ -137,9 +137,11 @@ export default function CheckoutForm(props: CheckoutFormProps) {
         </div>
       </form>
 
-      <button type="submit" form="checkout-form" onClick={handlePayBtnClick}>
-        Pay: {props.total} €{" "}
-      </button>
+      <div className="align-button">
+        <button type="submit" form="checkout-form" onClick={handlePayBtnClick}>
+          Pay: {Number(props.total.toFixed(2))} €
+        </button>
+      </div>
     </>
   );
 }

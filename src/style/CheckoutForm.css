@@ -1,6 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
-form {
+.personal-info {
+  /* HIDE RADIO */
+  /* IMAGE STYLES */
+}
+.personal-info .align-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.personal-info form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,13 +18,11 @@ form {
   margin: 10px;
   margin-bottom: 30px;
   text-align: center;
-  /* HIDE RADIO */
-  /* IMAGE STYLES */
 }
-form label {
+.personal-info form label {
   font-size: 23px;
 }
-form input {
+.personal-info form input {
   width: 100%;
   margin: 3px;
   font-family: "Macondo", cursive;
@@ -24,35 +31,35 @@ form input {
   background-color: #ececea;
   border-radius: 20px;
 }
-form h2 {
+.personal-info form h2 {
   font-family: "Caveat", cursive;
   font-weight: 200;
   font-size: 23px;
   margin: 4px;
 }
-form h2:after {
+.personal-info form h2:after {
   content: none;
 }
-form h3 {
+.personal-info form h3 {
   color: rgb(225, 13, 13);
 }
-form .input-flex {
+.personal-info form .input-flex {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-between;
 }
-form .payments-checkbox {
+.personal-info form .payments-checkbox {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-around;
   gap: 20px;
 }
-form .payments-checkbox img {
+.personal-info form .payments-checkbox img {
   width: 60px;
 }
-form .payments-checkbox .payment {
+.personal-info form .payments-checkbox .payment {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,24 +68,24 @@ form .payments-checkbox .payment {
   border-radius: 50%;
   width: 60px;
 }
-form .payments-checkbox .payment:hover {
+.personal-info form .payments-checkbox .payment:hover {
   background-color: #f8e779;
   box-shadow: 0px 0px 15px 5px #f3d74b;
 }
-form .payments-checkbox .payment > h2 {
+.personal-info form .payments-checkbox .payment > h2 {
   font-size: 20px;
   margin: 5px;
 }
-form .payments-checkbox .payment > h2:after {
+.personal-info form .payments-checkbox .payment > h2:after {
   content: none;
 }
-form [type=radio] {
+.personal-info [type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
-form [type=radio] + img {
+.personal-info [type=radio] + img {
   cursor: pointer;
   width: 50px;
 }/*# sourceMappingURL=CheckoutForm.css.map */
