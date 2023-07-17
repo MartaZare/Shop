@@ -12,30 +12,19 @@ interface ProductsProps {
 export default function Products(props: ProductsProps) {
   const { productsInCart, setProductsInCart, checkoutSuccessful } = props;
   const [allProducts, setAllProducts] = useState<Product[]>([]);
-  const [displayLeftProducts, setDisplayLeftProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch(`${API_URL}/products`)
+    fetch(`${API_URL}/products?bought=false`)
       .then((response) => response.json())
       .then((json) => {
         setAllProducts(json);
       });
-  }, []);
-
-  useEffect(() => {
-    if (checkoutSuccessful) {
-      const filteredProducts = allProducts.filter(
-        (product) =>
-          !productsInCart.find((cartProduct) => cartProduct.id === product.id)
-      );
-      setDisplayLeftProducts(filteredProducts);
-    }
   }, [checkoutSuccessful]);
 
   return (
     <div className="all-cards-flex">
       <div className="all-cards">
-        {displayLeftProducts.map((product) => (
+        {allProducts.map((product) => (
           <ProductCard
             image={product.image}
             name={product.name}
@@ -43,6 +32,7 @@ export default function Products(props: ProductsProps) {
             description={product.description}
             id={product.id}
             productsInCart={productsInCart}
+            bought={product.bought}
             setProductsInCart={setProductsInCart}
             checkoutSuccessful={checkoutSuccessful}
           />

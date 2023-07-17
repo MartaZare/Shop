@@ -9,6 +9,7 @@ interface ProductCardProps {
   description: string;
   id: number;
   productsInCart: Product[];
+  bought: boolean;
   setProductsInCart: (arg: Product[]) => void;
   checkoutSuccessful: boolean;
 }
@@ -21,12 +22,12 @@ export default function ProductCard(props: ProductCardProps) {
     description,
     id,
     productsInCart,
+    bought,
     setProductsInCart,
     checkoutSuccessful,
   } = props;
 
   const [allProducts, setAllProducts] = useState<Product[]>([]);
-  const [bought, setBought] = useState(false);
 
   useEffect(() => {
     fetch(`${API_URL}/products`)
@@ -35,12 +36,6 @@ export default function ProductCard(props: ProductCardProps) {
         setAllProducts(json);
       });
   }, []);
-
-  // useEffect(() => {
-  //   if (checkoutSuccessful) {
-  //     setBought(true);
-  //   }
-  // }, [checkoutSuccessful]);
 
   function addBtnClick(id: number) {
     const updatedCart = [...productsInCart];
@@ -51,20 +46,15 @@ export default function ProductCard(props: ProductCardProps) {
     if (productToAdd) {
       updatedCart.push(productToAdd);
       setProductsInCart(updatedCart);
-      setBought(true);
     }
   }
 
-  const cardStyles = {
-    opacity: bought ? "0.4" : "initial",
-  };
+  function isProductInCart(): boolean {
+    return productsInCart.some((product) => product.id === id);
+  }
 
   return (
-    <div
-      key={id}
-      className={`card ${bought ? "bought" : ""}`}
-      style={cardStyles}
-    >
+    <div key={id} className={"card"}>
       <img src={image} alt="product_product_image"></img>
       <>
         <h1>{name}</h1>
@@ -75,9 +65,9 @@ export default function ProductCard(props: ProductCardProps) {
       <button
         className={`add-product-btn `}
         onClick={() => addBtnClick(id)}
-        disabled={bought}
+        disabled={isProductInCart()}
       >
-        {bought ? "In cart" : "Add"}
+        {isProductInCart() ? "In cart" : "Add"}
       </button>
     </div>
   );

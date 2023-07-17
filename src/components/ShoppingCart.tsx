@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import Checkout from "./Checkout";
-import { API_URL } from "../other/Constants";
+import { Product } from "../other/Types";
 
 interface ShoppingCartProps {
   checkoutSuccessful: boolean;
@@ -9,15 +9,6 @@ interface ShoppingCartProps {
   productsInCart: Product[];
   setProductsInCart: (arg: Product[]) => void;
 }
-
-type Product = {
-  id: number;
-  createdBy: string;
-  image: string;
-  name: string;
-  price: number;
-  description: string;
-};
 
 export function ShoppingCart(props: ShoppingCartProps) {
   const {
@@ -75,6 +66,14 @@ export function ShoppingCart(props: ShoppingCartProps) {
     }
   }, [total]);
 
+  function handleDeleteItem(id: number) {
+    const newProductsInCart = productsInCart.filter(
+      (product) => product.id !== id
+    );
+
+    setProductsInCart(newProductsInCart);
+  }
+
   return (
     <>
       <img
@@ -110,6 +109,14 @@ export function ShoppingCart(props: ShoppingCartProps) {
                           <p className="cart-product-price">
                             {Number(product.price.toFixed(2))}
                           </p>
+                          <button
+                            className="delete-btn"
+                            onClick={() => {
+                              handleDeleteItem(product.id);
+                            }}
+                          >
+                            x
+                          </button>
                         </div>
                       </React.Fragment>
                     </>

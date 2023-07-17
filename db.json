@@ -6,7 +6,8 @@
       "image": "images/crystal-ball.png",
       "name": "Crystal Ball of Future",
       "price": 99.99,
-      "description": "Learn what lies ahead with this Crystal Ball!"
+      "description": "Learn what lies ahead with this Crystal Ball!",
+      "bought": false
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "image": "images/script.png",
       "name": "Script of Elders",
       "price": 1.99,
-      "description": "Sometimes to answer the question about the future we shall look in the past..."
+      "description": "Sometimes to answer the question about the future we shall look in the past...",
+      "bought": false
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "image": "images/love.png",
       "name": "Potion of Eternal Love",
       "price": 14.99,
-      "description": "Make anyone fall in love with you with a blink of an eye (and a drop to a drink...)!"
+      "description": "Make anyone fall in love with you with a blink of an eye (and a drop to a drink...)!",
+      "bought": false
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "image": "images/gems.png",
       "name": "Cursed Gems",
       "price": 39.99,
-      "description": "Join a lottery and see how the gem you chose will curse you!"
+      "description": "Join a lottery and see how the gem you chose will curse you!",
+      "bought": false
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "image": "images/mushroom.png",
       "name": "Magical Mushrooms",
       "price": 9.99,
-      "description": "Magic mushrooms from magical forest."
+      "description": "Magic mushrooms from magical forest.",
+      "bought": false
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "image": "images/poison.png",
       "name": "Poison for Unloved",
       "price": 4.99,
-      "description": "Poison for Unloved - easy solution for difficult problems!"
+      "description": "Poison for Unloved - easy solution for difficult problems!",
+      "bought": false
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "image": "images/tarot.png",
       "name": "Tarot Cards",
       "price": 99.99,
-      "description": "Learn what lies ahead with these tarot cards!"
+      "description": "Learn what lies ahead with these tarot cards!",
+      "bought": false
     },
     {
       "id": 8,
@@ -62,7 +69,8 @@
       "image": "images/witch-broom.png",
       "name": "Broom 2 in 1",
       "price": 55.99,
-      "description": "Broom 2 in 1 for a Clean Flight! Perfect for cleaning and running from chores!"
+      "description": "Broom 2 in 1 for a Clean Flight! Perfect for cleaning and running from chores!",
+      "bought": false
     },
     {
       "id": 9,
@@ -70,7 +78,8 @@
       "image": "images/cat.png",
       "name": "(Too Much) Talking Cat",
       "price": 0.0,
-      "description": "Please take it away..."
+      "description": "Please take it away...",
+      "bought": false
     },
     {
       "id": 10,
@@ -78,7 +87,8 @@
       "image": "images/apple.png",
       "name": "Poisoned Apple Delivery",
       "price": 66.69,
-      "description": "A retired elderly queen will deliver the poisoned apple to your desired destination."
+      "description": "A retired elderly queen will deliver the poisoned apple to your desired destination.",
+      "bought": false
     },
     {
       "id": 11,
@@ -86,7 +96,8 @@
       "image": "images/toad.png",
       "name": "Kiss Toad Prince Lotery",
       "price": 11.5,
-      "description": "Ever wanted to marry a prince? Join the lottery and see if you kissed the One!"
+      "description": "Ever wanted to marry a prince? Join the lottery and see if you kissed the One!",
+      "bought": false
     },
     {
       "id": 12,
@@ -94,7 +105,8 @@
       "image": "images/witch.png",
       "name": "WItCH Uber Driver",
       "price": 42.66,
-      "description": "Our lovely hundred-year-olds will be glad to transport you wherether it might be. For longer journey we recomend choosing Baba Yaga barrel or hut on chicken legs."
+      "description": "Our lovely hundred-year-olds will be glad to transport you wherether it might be. For longer journey we recomend choosing Baba Yaga barrel or hut on chicken legs.",
+      "bought": false
     },
     {
       "id": 13,
@@ -102,7 +114,8 @@
       "image": "images/sleep.png",
       "name": "Insomnia Treatment",
       "price": 75.5,
-      "description": "Get a good quality sleep, wherever and whenever you're ment to sleep well!"
+      "description": "Get a good quality sleep, wherever and whenever you're ment to sleep well!",
+      "bought": false
     },
     {
       "id": 14,
@@ -110,7 +123,8 @@
       "image": "images/hand.png",
       "name": "Palmistry",
       "price": 399.0,
-      "description": "Sertified university professors will tell you what lies ahead."
+      "description": "Sertified university professors will tell you what lies ahead.",
+      "bought": false
     },
     {
       "id": 15,
@@ -118,7 +132,8 @@
       "image": "images/rabbit.png",
       "name": "Magic Trick",
       "price": 0.99,
-      "description": "Get a wonderfull magic trick, or get tricked?"
+      "description": "Get a wonderfull magic trick, or get tricked?",
+      "bought": false
     }
   ]
 }
