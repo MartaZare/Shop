@@ -11,20 +11,20 @@ interface ProductsProps {
 
 export default function Products(props: ProductsProps) {
   const { productsInCart, setProductsInCart, checkoutSuccessful } = props;
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     fetch(`${API_URL}/products?bought=false`)
       .then((response) => response.json())
       .then((json) => {
-        setAllProducts(json);
+        setDisplayedProducts(json);
       });
   }, [checkoutSuccessful]);
 
   return (
     <div className="all-cards-flex">
       <div className="all-cards">
-        {allProducts.map((product) => (
+        {displayedProducts.map((product) => (
           <ProductCard
             image={product.image}
             name={product.name}

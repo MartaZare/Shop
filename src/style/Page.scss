@@ -1,15 +1,15 @@
 @import "./Variables.scss";
 
-.hero-align {
+.page-align {
   height: 80vh;
   @include flex-row-center;
 }
 
-.hero {
+.page {
   @include card;
   display: grid;
-  grid-template-columns: repeat(2fr, 1fr);
-  grid-template-rows: repeat(1fr, 2fr, 2fr);
+  grid-template-columns: (2fr 1fr);
+  grid-template-rows: (1fr 2fr 2fr);
   width: 80%;
   max-width: 800px;
 
@@ -28,10 +28,33 @@
     height: 250px;
     grid-area: 2 / 2 / 4 / 3;
   }
+
+  .error-link {
+    @include button;
+    justify-self: center;
+    grid-area: 4 / 1 / 5 / 3;
+    background-color: #85a3e3;
+    border-color: #85a3e3;
+  }
+}
+
+.user-page {
+  grid-template-rows: 1fr 1fr 15fr;
+
+  h1 {
+    grid-area: 1 / 1 / 2 / 3;
+    text-align: left;
+  }
+  p {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  img {
+    grid-area: 1 / 2 / 3 / 3;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
-  .hero {
+  .page {
     h1 {
       font-size: 45px;
     }
@@ -46,7 +69,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .hero {
+  .page {
     h1 {
       font-size: 40px;
     }
@@ -61,7 +84,7 @@
 }
 
 @media only screen and (max-width: 700px) {
-  .hero {
+  .page {
     h1 {
       font-size: 35px;
       grid-area: 1 / 1 / 2 / 4;

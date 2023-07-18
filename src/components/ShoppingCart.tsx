@@ -51,6 +51,10 @@ export function ShoppingCart(props: ShoppingCartProps) {
         setTotal(newTotal);
       });
     }
+
+    if (productsInCart.length === 0) {
+      setIsVisibleCheckoutBtn(false);
+    }
   }, [productsInCart, total]);
 
   function openCart() {
@@ -72,8 +76,6 @@ export function ShoppingCart(props: ShoppingCartProps) {
       setIsVisibleCheckoutField(false);
       setTotal(0);
       setProductsInCart([]);
-      console.log("CHECKOUT SUCCESSFUL");
-      console.log(productsInCart);
     }
   }, [checkoutSuccessful]);
 
@@ -153,7 +155,7 @@ export function ShoppingCart(props: ShoppingCartProps) {
             </button>
           ) : (
             <>
-              <img src="/images/unicorn.png" alt="empty-cart" />
+              <img src="/images/empty.png" alt="empty-cart" />
               <p>Sorry, your cart is currently empty...</p>
             </>
           )}

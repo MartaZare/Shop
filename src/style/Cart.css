@@ -78,4 +78,14 @@
 }
 .cart .items .cart-product-price:after {
   content: " €";
+}
+.cart .delete-btn {
+  background-color: #ffffff;
+  color: black;
+  min-width: 20px;
+  border: none;
+}
+.cart .delete-btn:hover {
+  box-shadow: none;
+  color: #cb9006;
 }/*# sourceMappingURL=Cart.css.map */

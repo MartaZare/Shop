@@ -75,4 +75,16 @@
       content: " €";
     }
   }
+
+  .delete-btn {
+    background-color: #ffffff;
+    color: black;
+    min-width: 20px;
+    border: none;
+  }
+
+  .delete-btn:hover {
+    box-shadow: none;
+    color: $text-accent-color;
+  }
 }

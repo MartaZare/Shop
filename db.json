@@ -7,7 +7,7 @@
       "name": "Crystal Ball of Future",
       "price": 99.99,
       "description": "Learn what lies ahead with this Crystal Ball!",
-      "bought": true
+      "bought": false
     },
     {
       "id": 2,

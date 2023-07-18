@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <div className="hero-align">
-      <div className="hero">
+    <div className="page-align">
+      <div className="page">
         <h1>Welcome To The Quirky Cauldron!</h1>
         <p>
           Hail, traveler! Welcome to my humble emporium, where treasures from
