@@ -7,7 +7,7 @@
       "name": "Crystal Ball of Future",
       "price": 99.99,
       "description": "Learn what lies ahead with this Crystal Ball!",
-      "bought": false
+      "bought": true
     },
     {
       "id": 2,
@@ -134,6 +134,12 @@
       "price": 0.99,
       "description": "Get a wonderfull magic trick, or get tricked?",
       "bought": false
+    },
+    {
+      "name": "Skirt",
+      "description": "S",
+      "price": 3,
+      "id": 16
     }
   ]
 }

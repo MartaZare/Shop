@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard from "../components/ProductCard";
 import { API_URL } from "../other/Constants";
 import { Product } from "../other/Types";
 
