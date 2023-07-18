@@ -7,7 +7,7 @@
       "name": "Crystal Ball of Future",
       "price": 99.99,
       "description": "Learn what lies ahead with this Crystal Ball!",
-      "bought": false
+      "bought": true
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "name": "Script of Elders",
       "price": 1.99,
       "description": "Sometimes to answer the question about the future we shall look in the past...",
-      "bought": false
+      "bought": true
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "name": "Potion of Eternal Love",
       "price": 14.99,
       "description": "Make anyone fall in love with you with a blink of an eye (and a drop to a drink...)!",
-      "bought": false
+      "bought": true
     },
     {
       "id": 4,
@@ -77,7 +77,7 @@
       "createdBy": "author",
       "image": "images/cat.png",
       "name": "(Too Much) Talking Cat",
-      "price": 0.0,
+      "price": 0,
       "description": "Please take it away...",
       "bought": false
     },
@@ -122,7 +122,7 @@
       "createdBy": "author",
       "image": "images/hand.png",
       "name": "Palmistry",
-      "price": 399.0,
+      "price": 399,
       "description": "Sertified university professors will tell you what lies ahead.",
       "bought": false
     },

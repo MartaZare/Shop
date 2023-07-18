@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import Checkout from "./Checkout";
 import { Product } from "../other/Types";
+import { API_URL } from "../other/Constants";
 
 interface ShoppingCartProps {
   checkoutSuccessful: boolean;
@@ -23,6 +24,20 @@ export function ShoppingCart(props: ShoppingCartProps) {
   const [isVisibleCheckoutField, setIsVisibleCheckoutField] = useState(false);
   const [isVisibleCheckoutBtn, setIsVisibleCheckoutBtn] = useState(false);
   const [isVisibleProducts, setisVisibleProducts] = useState(false);
+
+  useEffect(() => {
+    productsInCart.map((product) => {
+      fetch(`${API_URL}/products/${product.id}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          bought: true,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+    });
+  }, [checkoutSuccessful]);
 
   useEffect(() => {
     if (productsInCart.length !== 0) {
@@ -57,6 +72,8 @@ export function ShoppingCart(props: ShoppingCartProps) {
       setIsVisibleCheckoutField(false);
       setTotal(0);
       setProductsInCart([]);
+      console.log("CHECKOUT SUCCESSFUL");
+      console.log(productsInCart);
     }
   }, [checkoutSuccessful]);
 
