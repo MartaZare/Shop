@@ -5,7 +5,7 @@ import Products from "./pages/Products";
 
 import { Route, Routes, Link, NavLink } from "react-router-dom";
 import { ShoppingCart } from "./components/ShoppingCart";
-import SuccessfullPurchase from "./components/SuccessfullPurchase";
+import SuccessfullPurchase from "./components/SuccessfullPurchaseProps";
 import { Product } from "./other/Types";
 import UserPage from "./pages/UserPage";
 import AddUserForm from "./components/AddUser";

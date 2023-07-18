@@ -1,10 +1,6 @@
-import React, {
-  ChangeEvent,
-  FormEvent,
-  TextareaHTMLAttributes,
-  useState,
-} from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { API_URL } from "../other/Constants";
+import { useNavigate } from "react-router-dom";
 
 interface AddProduct {
   currentUser: string;
@@ -16,20 +12,26 @@ function AddProduct(props: AddProduct) {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
 
+  const navigate = useNavigate();
+
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
     fetch(`${API_URL}/products`, {
       method: "POST",
       body: JSON.stringify({
+        createdBy: currentUser,
         name: title,
         description: description,
         price: price,
+        bought: false,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     });
+
+    navigate("/user");
   }
 
   const handleTitle = (event: ChangeEvent<HTMLInputElement>) => {
