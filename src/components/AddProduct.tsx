@@ -1,6 +1,7 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { API_URL } from "../other/Constants";
 import { useNavigate } from "react-router-dom";
+import { Image } from "../other/Types";
 
 interface AddProduct {
   currentUser: string;
@@ -11,8 +12,18 @@ function AddProduct(props: AddProduct) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
+  const [image, setImage] = useState("");
+  const [imageDatabase, setImageDatabase] = useState<Image[]>([]);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch(`${API_URL}/images`)
+      .then((response) => response.json())
+      .then((json) => {
+        setImageDatabase(json);
+      });
+  }, []);
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -21,6 +32,7 @@ function AddProduct(props: AddProduct) {
       method: "POST",
       body: JSON.stringify({
         createdBy: currentUser,
+        image: image,
         name: title,
         description: description,
         price: price,
@@ -44,6 +56,10 @@ function AddProduct(props: AddProduct) {
 
   const handlePrice = (event: ChangeEvent<HTMLInputElement>) => {
     setPrice(Number(event.target.value));
+  };
+
+  const handleImage = (event: ChangeEvent<HTMLSelectElement>) => {
+    setImage(event.target.value);
   };
 
   return (
@@ -95,6 +111,22 @@ function AddProduct(props: AddProduct) {
               onChange={handlePrice}
               required
             />
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="image">Image:</label>
+            <select name="image" onChange={handleImage} value={image} required>
+              <option value="" disabled>
+                --select image--
+              </option>
+              {imageDatabase.map((image) => {
+                return (
+                  <option key={image.id} value={image.url}>
+                    {image.name}
+                  </option>
+                );
+              })}
+            </select>
           </div>
 
           <button type="submit">Submit</button>

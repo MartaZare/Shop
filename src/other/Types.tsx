@@ -7,3 +7,9 @@ export type Product = {
   description: string;
   bought: boolean;
 };
+
+export type Image = {
+  url: string;
+  name: string;
+  id: number;
+};

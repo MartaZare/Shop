@@ -21,7 +21,7 @@ function UserProductCard(props: UserProductCardProps) {
 
   return (
     <div key={id} className={"card"}>
-      <img src={image} alt="product_product_image"></img>
+      <img src={image} alt="product_product_image" />
       <>
         <h1>{name}</h1>
         <h2>{price}</h2>
