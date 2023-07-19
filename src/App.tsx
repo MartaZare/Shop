@@ -6,21 +6,15 @@ import { Route, Routes, Link, NavLink } from "react-router-dom";
 import { ShoppingCart } from "./components/ShoppingCart";
 import SuccessfullPurchase from "./components/SuccessfullPurchaseProps";
 import UserPage from "./pages/UserPage";
-import AddUserForm from "./components/AddUser";
+import AddUser from "./components/AddUser";
 import AddProduct from "./components/AddProduct";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState("");
   const [showLogIn, setShowLogIn] = useState(true);
 
   return (
     <>
-      {showLogIn && (
-        <AddUserForm
-          setShowLogIn={setShowLogIn}
-          setCurrentUser={setCurrentUser}
-        />
-      )}
+      {showLogIn && <AddUser setShowLogIn={setShowLogIn} />}
       {!showLogIn && (
         <>
           <nav className="main-navigation">
@@ -45,14 +39,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
-            <Route
-              path="/user"
-              element={<UserPage currentUser={currentUser} />}
-            />
-            <Route
-              path="/user/new-product"
-              element={<AddProduct currentUser={currentUser} />}
-            />
+            <Route path="/user" element={<UserPage />} />
+            <Route path="/user/new-product" element={<AddProduct />} />
 
             <Route
               path="*"

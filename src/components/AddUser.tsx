@@ -1,12 +1,14 @@
 import { ChangeEvent, FormEvent } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../reducers/userSlice";
 
 interface AddUserProps {
   setShowLogIn: (arg: boolean) => void;
-  setCurrentUser: (arg: string) => void;
 }
 
 function AddUser(props: AddUserProps) {
-  const { setShowLogIn, setCurrentUser } = props;
+  const { setShowLogIn } = props;
+  const dispatch = useDispatch();
 
   function handleSubmit(event: FormEvent) {
     event?.preventDefault();
@@ -14,7 +16,7 @@ function AddUser(props: AddUserProps) {
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setCurrentUser(event.target.value);
+    dispatch(setCurrentUser(event.target.value));
   };
 
   return (

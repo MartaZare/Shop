@@ -4,6 +4,11 @@
   font-family: $main-font;
 }
 
+html {
+  background-color: $background-main-color;
+  height: 100vh;
+}
+
 h1,
 h2,
 li,

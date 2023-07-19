@@ -14,7 +14,6 @@ export default function CheckoutForm(props: CheckoutFormProps) {
   const [soul, setSoul] = useState(false);
   const [pressedSubmit, setPressedSubmit] = useState(false);
   const [payBtnActive, setPayBtnActive] = useState(false);
-  const checkout = useSelector((state: RootState) => state.checkout);
   const dispatch = useDispatch();
 
   function handleCashClick(event: React.MouseEvent<HTMLInputElement>) {

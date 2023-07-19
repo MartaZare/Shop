@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../other/Constants";
 
 interface UserProductCardProps {
@@ -6,16 +7,18 @@ interface UserProductCardProps {
   price: number;
   description: string;
   id: number;
-  bought: boolean;
 }
 
 function UserProductCard(props: UserProductCardProps) {
-  const { image, name, price, description, id, bought } = props;
+  const { image, name, price, description, id } = props;
+  const navigate = useNavigate();
 
   function handleDelete(id: number) {
     fetch(`${API_URL}/products/${id}`, {
       method: "DELETE",
     });
+
+    navigate("/");
   }
 
   return (

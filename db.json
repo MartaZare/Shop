@@ -7,7 +7,7 @@
       "name": "WhisperWrap Scarf",
       "price": 28.99,
       "description": "WhisperWrap, the extraordinary talking scarf - trusted companion in both fashion and emotional well-being!",
-      "bought": true
+      "bought": false
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "name": "Ring of the Lords",
       "price": 19.54,
       "description": "This ring offers liberation rather than domination, granting you the ability to resist and overcome the temptations of power.",
-      "bought": true
+      "bought": false
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "name": "Enchanted Pathfinder",
       "price": 16.34,
       "description": "These shoes will ensure that your destiny unfolds as it was meant to be! The built-in GPS guides your every step, leading the prince directly to your doorstep.",
-      "bought": true
+      "bought": false
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "name": "Vampire Cloak with SPF50",
       "price": 3.99,
       "description": "Step out into the day, exuding a sense of ethereal grace, as the cloak's built-in SPF ensures your vampire vitality remains unharmed.",
-      "bought": true
+      "bought": false
     },
     {
       "id": 5,
@@ -43,7 +43,7 @@
       "name": "Dark Ascendant Helmet",
       "price": 19.83,
       "description": " As you don the Dark Ascendant Helmet, prepare to hear the haunting echoes of 'I am your father' and the seductive whisper of 'Come to the dark side.'",
-      "bought": true
+      "bought": false
     },
     {
       "id": 6,
@@ -52,7 +52,7 @@
       "name": "WalkWise Pants",
       "price": 15.5,
       "description": "With these remarkable trousers, walking becomes effortless as they take each step for you. Say goodbye to fatigue and never walk the wrong path again! ",
-      "bought": true
+      "bought": false
     },
     {
       "id": 7,
@@ -61,16 +61,16 @@
       "name": "MoonSong Wings",
       "price": 19.54,
       "description": "Take Flight with Sinatra's Inspiration! These wings encapsulate the essence of Sinatra's classic hit, lifting you up to celestial heights and whisking you away on a celestial odyssey.",
-      "bought": true
+      "bought": false
     },
     {
       "id": 8,
       "createdBy": "author",
-      "image": "images/magic-ring.png",
-      "name": " Compass Ring",
-      "price": 74.25,
-      "description": " This enchanting ring combines the artistry of a finely crafted jewel with the navigational prowess of a seasoned explorer. ",
-      "bought": true
+      "image": "images/red-cloak.png",
+      "name": "Lure Cloak",
+      "price": 16.97,
+      "description": "This extraordinary cloak possesses a unique duality, attracting wolves or used in corrida de toros. ",
+      "bought": false
     },
     {
       "id": 9,
@@ -97,6 +97,15 @@
       "name": "GuardianShield Amulet",
       "price": 11.3,
       "description": "Experience unwavering protection with the GuardianShield Amulet, a formidable talisman designed to safeguard you from all harm. ",
+      "bought": false
+    },
+    {
+      "id": 12,
+      "createdBy": "author",
+      "image": "images/magic-ring.png",
+      "name": " Compass Ring",
+      "price": 74.25,
+      "description": " This enchanting ring combines the artistry of a finely crafted jewel with the navigational prowess of a seasoned explorer. ",
       "bought": false
     }
   ],
@@ -128,7 +137,7 @@
     },
     {
       "id": 6,
-      " url": "images/wings.png",
+      "url": "images/wings.png",
       "name": "Wings"
     },
     {

@@ -11,12 +11,10 @@ interface ProductCardProps {
   price: number;
   description: string;
   id: number;
-  bought: boolean;
 }
 
 export default function ProductCard(props: ProductCardProps) {
-  const { image, name, price, description, id, bought } = props;
-
+  const { image, name, price, description, id } = props;
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const dispatch = useDispatch();
   const cartProducts = useSelector((state: RootState) => state.products);

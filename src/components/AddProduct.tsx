@@ -2,19 +2,17 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { API_URL } from "../other/Constants";
 import { useNavigate } from "react-router-dom";
 import { Image } from "../other/Types";
+import { RootState } from "../store";
+import { useSelector } from "react-redux";
 
-interface AddProduct {
-  currentUser: string;
-}
-
-function AddProduct(props: AddProduct) {
-  const { currentUser } = props;
+function AddProduct() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
   const [imageDatabase, setImageDatabase] = useState<Image[]>([]);
 
+  const currentUser = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -73,7 +71,7 @@ function AddProduct(props: AddProduct) {
             <input
               type="text"
               name="creator"
-              value={currentUser}
+              value={currentUser.currentUser}
               style={{ backgroundColor: "#CCCBCB", color: "grey" }}
               readOnly
             />

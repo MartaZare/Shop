@@ -15,6 +15,13 @@
   align-items: flex-start;
 }
 
+.products-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -60,8 +67,8 @@
   font-size: 20px;
   color: white;
   border-radius: 20px;
-  border: solid 2px #f6c74f;
-  background-color: #f6c74f;
+  border: solid 2px #f8bb22;
+  background-color: #f8bb22;
   justify-self: center;
   grid-area: 4/1/5/3;
   background-color: #85a3e3;
@@ -142,14 +149,14 @@
   font-size: 20px;
   color: white;
   border-radius: 20px;
-  border: solid 2px #f6c74f;
-  background-color: #f6c74f;
+  border: solid 2px #f8bb22;
+  background-color: #f8bb22;
   margin-top: 40px;
   width: 20%;
   text-align: center;
 }
 .user a:hover {
   border: solid 2px #ffffff;
-  box-shadow: 0px 0px 15px 5px #efbe42;
+  box-shadow: 0px 0px 15px 5px #f8bb22;
   color: #ffffff;
 }/*# sourceMappingURL=Page.css.map */

@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 import { API_URL } from "../other/Constants";
 import { Product } from "../other/Types";
 import UserProductCard from "../components/UserProductCard";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
-interface UserPageProps {
-  currentUser: string;
-}
-
-function UserPage(props: UserPageProps) {
-  const { currentUser } = props;
+function UserPage() {
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
+  const currentUser = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
     fetch(`${API_URL}/products?createdBy=${currentUser}`)
@@ -24,7 +22,7 @@ function UserPage(props: UserPageProps) {
     <div className="user">
       <div className="user-page-align">
         <div className="page user-page">
-          <h1>Welcome {currentUser}!</h1>
+          <h1>Welcome {currentUser.currentUser}!</h1>
           <img src={"images/account.png"} alt="account-image" />
         </div>
       </div>
@@ -42,7 +40,6 @@ function UserPage(props: UserPageProps) {
               price={product.price}
               description={product.description}
               id={product.id}
-              bought={product.bought}
             />
           ))}
         </div>
