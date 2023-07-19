@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Product } from "../other/Types";
 import { API_URL } from "../other/Constants";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { addToCart } from "../reducers/cartSlice";
 
 interface ProductCardProps {
   image: string;
@@ -28,6 +31,8 @@ export default function ProductCard(props: ProductCardProps) {
   } = props;
 
   const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const dispatch = useDispatch();
+  const cartProducts = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
     fetch(`${API_URL}/products`)
@@ -38,14 +43,18 @@ export default function ProductCard(props: ProductCardProps) {
   }, []);
 
   function addBtnClick(id: number) {
-    const updatedCart = [...productsInCart];
+    // const updatedCart = [...productsInCart];
     let productToAdd: Product | undefined = allProducts.find(
       (product) => product.id === id
     );
 
     if (productToAdd) {
-      updatedCart.push(productToAdd);
-      setProductsInCart(updatedCart);
+      if (!cartProducts.find((product) => product.id === productToAdd!.id)) {
+        dispatch(addToCart(productToAdd));
+      }
+
+      // updatedCart.push(productToAdd);
+      // setProductsInCart(updatedCart);
     }
   }
 

@@ -16,7 +16,6 @@ function UserProductCard(props: UserProductCardProps) {
     fetch(`${API_URL}/products/${id}`, {
       method: "DELETE",
     });
-    console.log("fucntion is called");
   }
 
   return (

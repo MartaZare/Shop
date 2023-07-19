@@ -3,6 +3,9 @@ import React from "react";
 import Checkout from "./Checkout";
 import { Product } from "../other/Types";
 import { API_URL } from "../other/Constants";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { removeFromCart } from "../reducers/cartSlice";
 
 interface ShoppingCartProps {
   checkoutSuccessful: boolean;
@@ -24,9 +27,11 @@ export function ShoppingCart(props: ShoppingCartProps) {
   const [isVisibleCheckoutField, setIsVisibleCheckoutField] = useState(false);
   const [isVisibleCheckoutBtn, setIsVisibleCheckoutBtn] = useState(false);
   const [isVisibleProducts, setisVisibleProducts] = useState(false);
+  const dispatch = useDispatch();
+  const cartProducts = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
-    productsInCart.map((product) => {
+    cartProducts.map((product) => {
       fetch(`${API_URL}/products/${product.id}`, {
         method: "PATCH",
         body: JSON.stringify({
@@ -40,22 +45,22 @@ export function ShoppingCart(props: ShoppingCartProps) {
   }, [checkoutSuccessful]);
 
   useEffect(() => {
-    if (productsInCart.length !== 0) {
+    if (cartProducts.length !== 0) {
       setIsVisibleCheckoutBtn(true);
       setTotal(0);
       setisVisibleProducts(true);
 
       let newTotal: number = 0;
-      productsInCart.map((product) => {
+      cartProducts.map((product) => {
         newTotal += product.price;
         setTotal(newTotal);
       });
     }
 
-    if (productsInCart.length === 0) {
+    if (cartProducts.length === 0) {
       setIsVisibleCheckoutBtn(false);
     }
-  }, [productsInCart, total]);
+  }, [cartProducts, total]);
 
   function openCart() {
     setIsVisibleCart(true);
@@ -75,7 +80,10 @@ export function ShoppingCart(props: ShoppingCartProps) {
       setIsVisibleCheckoutBtn(false);
       setIsVisibleCheckoutField(false);
       setTotal(0);
-      setProductsInCart([]);
+
+      cartProducts.map((soldProduct) => {
+        dispatch(removeFromCart(soldProduct));
+      });
     }
   }, [checkoutSuccessful]);
 
@@ -86,11 +94,19 @@ export function ShoppingCart(props: ShoppingCartProps) {
   }, [total]);
 
   function handleDeleteItem(id: number) {
-    const newProductsInCart = productsInCart.filter(
-      (product) => product.id !== id
+    // const newProductsInCart = productsInCart.filter(
+    //   (product) => product.id !== id
+    // );
+
+    let productToDelete: Product | undefined = cartProducts.find(
+      (product) => product.id === id
     );
 
-    setProductsInCart(newProductsInCart);
+    if (productToDelete) {
+      dispatch(removeFromCart(productToDelete));
+    }
+
+    // setProductsInCart(newProductsInCart);
   }
 
   return (
@@ -113,7 +129,7 @@ export function ShoppingCart(props: ShoppingCartProps) {
           <h1>Shopping Cart</h1>
           {isVisibleProducts && (
             <div className="items">
-              {productsInCart.map((product) => {
+              {cartProducts.map((product) => {
                 if (product) {
                   return (
                     <>
