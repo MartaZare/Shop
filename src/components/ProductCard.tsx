@@ -4,6 +4,7 @@ import { API_URL } from "../other/Constants";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { addToCart } from "../reducers/cartSlice";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   image: string;
@@ -11,13 +12,15 @@ interface ProductCardProps {
   price: number;
   description: string;
   id: number;
+  createdBy: string;
 }
 
 export default function ProductCard(props: ProductCardProps) {
-  const { image, name, price, description, id } = props;
+  const { image, name, price, description, id, createdBy } = props;
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const dispatch = useDispatch();
   const cartProducts = useSelector((state: RootState) => state.products);
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
 
   useEffect(() => {
     fetch(`${API_URL}/products`)
@@ -44,21 +47,28 @@ export default function ProductCard(props: ProductCardProps) {
   }
 
   return (
-    <div key={id} className={"card"}>
-      <img src={image} alt="product_product_image"></img>
+    <div
+      key={id}
+      className={`card ${createdBy === currentUser ? "user-product" : ""}`}
+    >
+      <img src={image} alt="product_product_image" />
       <>
         <h1>{name}</h1>
         <h2>{price}</h2>
         <p>{description}</p>
       </>
 
-      <button
-        className={`add-product-btn `}
-        onClick={() => addBtnClick(id)}
-        disabled={isProductInCart()}
-      >
-        {isProductInCart() ? "In cart" : "Add"}
-      </button>
+      {createdBy !== currentUser ? (
+        <button
+          className={`add-product-btn `}
+          onClick={() => addBtnClick(id)}
+          disabled={isProductInCart()}
+        >
+          {isProductInCart() ? "In cart" : "Add"}
+        </button>
+      ) : (
+        <Link to="/user">My Page</Link>
+      )}
     </div>
   );
 }

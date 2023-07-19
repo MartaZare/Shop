@@ -91,22 +91,40 @@
       "bought": false
     },
     {
-      "id": 11,
-      "createdBy": "author",
-      "image": "images/amulet.png",
-      "name": "GuardianShield Amulet",
-      "price": 11.3,
-      "description": "Experience unwavering protection with the GuardianShield Amulet, a formidable talisman designed to safeguard you from all harm. ",
-      "bought": false
+      "createdBy": "vxcxv",
+      "image": "images/magic-ring.png",
+      "name": "cvxvxc",
+      "description": "cxvxcv",
+      "price": 55,
+      "bought": false,
+      "id": 16
     },
     {
-      "id": 12,
-      "createdBy": "author",
+      "createdBy": "vxcxv",
       "image": "images/magic-ring.png",
-      "name": " Compass Ring",
-      "price": 74.25,
-      "description": " This enchanting ring combines the artistry of a finely crafted jewel with the navigational prowess of a seasoned explorer. ",
-      "bought": false
+      "name": "dsfsd",
+      "description": "dsfsdf",
+      "price": 3,
+      "bought": false,
+      "id": 17
+    },
+    {
+      "createdBy": "wserdfs",
+      "image": "images/magic-boot.png",
+      "name": "wer",
+      "description": "ewrwe",
+      "price": 3,
+      "bought": false,
+      "id": 18
+    },
+    {
+      "createdBy": "dsf",
+      "image": "images/magic-ring.png",
+      "name": "asdas",
+      "description": "dsadas",
+      "price": 3,
+      "bought": false,
+      "id": 19
     }
   ],
   "images": [

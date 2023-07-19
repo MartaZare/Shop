@@ -4,13 +4,11 @@ import { API_URL } from "../other/Constants";
 import { Product } from "../other/Types";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { useNavigate } from "react-router-dom";
 
 export default function Products() {
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const checkout = useSelector((state: RootState) => state.checkout);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${API_URL}/products`)
@@ -28,7 +26,7 @@ export default function Products() {
       });
   }, [checkout]);
 
-  function displayAllProducts() {
+  function displayOriginalProducts() {
     allProducts.map((product) => {
       fetch(`${API_URL}/products/${product.id}`, {
         method: "PATCH",
@@ -41,7 +39,11 @@ export default function Products() {
       });
     });
 
-    navigate("/");
+    for (let i = 11; i < allProducts.length; i++) {
+      fetch(`${API_URL}/products/${i}`, {
+        method: "DELETE",
+      });
+    }
   }
 
   return (
@@ -56,11 +58,12 @@ export default function Products() {
                 price={product.price}
                 description={product.description}
                 id={product.id}
+                createdBy={product.createdBy}
               />
             ))}
           </div>
         </div>
-        <button onClick={displayAllProducts}>Restock</button>
+        <button onClick={displayOriginalProducts}>Restock</button>
       </div>
     </>
   );

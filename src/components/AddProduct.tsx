@@ -11,8 +11,7 @@ function AddProduct() {
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
   const [imageDatabase, setImageDatabase] = useState<Image[]>([]);
-
-  const currentUser = useSelector((state: RootState) => state.user);
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -71,7 +70,7 @@ function AddProduct() {
             <input
               type="text"
               name="creator"
-              value={currentUser.currentUser}
+              value={currentUser}
               style={{ backgroundColor: "#CCCBCB", color: "grey" }}
               readOnly
             />
