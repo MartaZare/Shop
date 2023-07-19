@@ -2,8 +2,6 @@ import CheckoutForm from "./CheckoutForm";
 
 interface CheckoutProps {
   total: number;
-  checkoutSuccessful: boolean;
-  setCheckoutSuccessfull: (arg: boolean) => void;
   isVisibleCheckoutField: boolean;
   setIsVisibleCheckoutField: (arg: boolean) => void;
   setIsVisible: (arg: boolean) => void;
@@ -29,8 +27,6 @@ export default function Checkout(props: CheckoutProps) {
           <div className="personal-info">
             <CheckoutForm
               total={props.total}
-              checkoutSuccessful={props.checkoutSuccessful}
-              setCheckoutSuccessfull={props.setCheckoutSuccessfull}
               setIsVisible={props.setIsVisible}
             />
           </div>

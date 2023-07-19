@@ -11,24 +11,11 @@ interface ProductCardProps {
   price: number;
   description: string;
   id: number;
-  productsInCart: Product[];
   bought: boolean;
-  setProductsInCart: (arg: Product[]) => void;
-  checkoutSuccessful: boolean;
 }
 
 export default function ProductCard(props: ProductCardProps) {
-  const {
-    image,
-    name,
-    price,
-    description,
-    id,
-    productsInCart,
-    bought,
-    setProductsInCart,
-    checkoutSuccessful,
-  } = props;
+  const { image, name, price, description, id, bought } = props;
 
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const dispatch = useDispatch();
@@ -43,7 +30,6 @@ export default function ProductCard(props: ProductCardProps) {
   }, []);
 
   function addBtnClick(id: number) {
-    // const updatedCart = [...productsInCart];
     let productToAdd: Product | undefined = allProducts.find(
       (product) => product.id === id
     );
@@ -52,14 +38,11 @@ export default function ProductCard(props: ProductCardProps) {
       if (!cartProducts.find((product) => product.id === productToAdd!.id)) {
         dispatch(addToCart(productToAdd));
       }
-
-      // updatedCart.push(productToAdd);
-      // setProductsInCart(updatedCart);
     }
   }
 
   function isProductInCart(): boolean {
-    return productsInCart.some((product) => product.id === id);
+    return cartProducts.some((product) => product.id === id);
   }
 
   return (

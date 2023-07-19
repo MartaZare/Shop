@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { notPurchased, purchased } from "../reducers/checkoutSlice";
 
 interface CheckoutFormProps {
   total: number;
-  checkoutSuccessful: boolean;
-  setCheckoutSuccessfull: (arg: boolean) => void;
   setIsVisible: (arg: boolean) => void;
 }
 
@@ -13,6 +14,8 @@ export default function CheckoutForm(props: CheckoutFormProps) {
   const [soul, setSoul] = useState(false);
   const [pressedSubmit, setPressedSubmit] = useState(false);
   const [payBtnActive, setPayBtnActive] = useState(false);
+  const checkout = useSelector((state: RootState) => state.checkout);
+  const dispatch = useDispatch();
 
   function handleCashClick(event: React.MouseEvent<HTMLInputElement>) {
     paymentChecked(event);
@@ -50,9 +53,9 @@ export default function CheckoutForm(props: CheckoutFormProps) {
 
   function isCheckoutSuccessful(event: React.FormEvent) {
     event.preventDefault();
-    props.setCheckoutSuccessfull(true);
+    dispatch(purchased());
     setTimeout(() => {
-      props.setCheckoutSuccessfull(false);
+      dispatch(notPurchased());
       props.setIsVisible(false);
     }, 4000);
   }

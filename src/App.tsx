@@ -2,18 +2,14 @@ import "./style/App.scss";
 import { useState } from "react";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-
 import { Route, Routes, Link, NavLink } from "react-router-dom";
 import { ShoppingCart } from "./components/ShoppingCart";
 import SuccessfullPurchase from "./components/SuccessfullPurchaseProps";
-import { Product } from "./other/Types";
 import UserPage from "./pages/UserPage";
 import AddUserForm from "./components/AddUser";
 import AddProduct from "./components/AddProduct";
 
 function App() {
-  const [checkoutSuccessful, setCheckoutSuccessfull] = useState(false);
-  const [productsInCart, setProductsInCart] = useState<Product[]>([]);
   const [currentUser, setCurrentUser] = useState("");
   const [showLogIn, setShowLogIn] = useState(true);
 
@@ -48,16 +44,7 @@ function App() {
           </nav>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/products"
-              element={
-                <Products
-                  productsInCart={productsInCart}
-                  setProductsInCart={setProductsInCart}
-                  checkoutSuccessful={checkoutSuccessful}
-                />
-              }
-            />
+            <Route path="/products" element={<Products />} />
             <Route
               path="/user"
               element={<UserPage currentUser={currentUser} />}
@@ -91,13 +78,8 @@ function App() {
               }
             />
           </Routes>
-          <ShoppingCart
-            checkoutSuccessful={checkoutSuccessful}
-            setCheckoutSuccessfull={setCheckoutSuccessfull}
-            productsInCart={productsInCart}
-            setProductsInCart={setProductsInCart}
-          />
-          <SuccessfullPurchase checkoutSuccessful={checkoutSuccessful} />
+          <ShoppingCart />
+          <SuccessfullPurchase />
         </>
       )}
     </>

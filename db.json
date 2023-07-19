@@ -52,7 +52,7 @@
       "name": "WalkWise Pants",
       "price": 15.5,
       "description": "With these remarkable trousers, walking becomes effortless as they take each step for you. Say goodbye to fatigue and never walk the wrong path again! ",
-      "bought": false
+      "bought": true
     },
     {
       "id": 7,

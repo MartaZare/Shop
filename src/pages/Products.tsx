@@ -2,16 +2,12 @@ import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { API_URL } from "../other/Constants";
 import { Product } from "../other/Types";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
-interface ProductsProps {
-  productsInCart: Product[];
-  setProductsInCart: (arg: Product[]) => void;
-  checkoutSuccessful: boolean;
-}
-
-export default function Products(props: ProductsProps) {
-  const { productsInCart, setProductsInCart, checkoutSuccessful } = props;
+export default function Products() {
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
+  const checkout = useSelector((state: RootState) => state.checkout);
 
   useEffect(() => {
     fetch(`${API_URL}/products?bought=false`)
@@ -19,7 +15,7 @@ export default function Products(props: ProductsProps) {
       .then((json) => {
         setDisplayedProducts(json);
       });
-  }, [checkoutSuccessful]);
+  }, [checkout]);
 
   return (
     <div className="all-cards-flex">
@@ -31,10 +27,7 @@ export default function Products(props: ProductsProps) {
             price={product.price}
             description={product.description}
             id={product.id}
-            productsInCart={productsInCart}
             bought={product.bought}
-            setProductsInCart={setProductsInCart}
-            checkoutSuccessful={checkoutSuccessful}
           />
         ))}
       </div>

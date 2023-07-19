@@ -7,21 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { removeFromCart } from "../reducers/cartSlice";
 
-interface ShoppingCartProps {
-  checkoutSuccessful: boolean;
-  setCheckoutSuccessfull: (arg: boolean) => void;
-  productsInCart: Product[];
-  setProductsInCart: (arg: Product[]) => void;
-}
-
-export function ShoppingCart(props: ShoppingCartProps) {
-  const {
-    checkoutSuccessful,
-    setCheckoutSuccessfull,
-    productsInCart,
-    setProductsInCart,
-  } = props;
-
+export function ShoppingCart() {
   const [isVisibleCart, setIsVisibleCart] = useState(false);
   const [total, setTotal] = useState(0);
   const [isVisibleCheckoutField, setIsVisibleCheckoutField] = useState(false);
@@ -29,6 +15,7 @@ export function ShoppingCart(props: ShoppingCartProps) {
   const [isVisibleProducts, setisVisibleProducts] = useState(false);
   const dispatch = useDispatch();
   const cartProducts = useSelector((state: RootState) => state.products);
+  const checkout = useSelector((state: RootState) => state.checkout);
 
   useEffect(() => {
     cartProducts.map((product) => {
@@ -42,7 +29,7 @@ export function ShoppingCart(props: ShoppingCartProps) {
         },
       });
     });
-  }, [checkoutSuccessful]);
+  }, [checkout]);
 
   useEffect(() => {
     if (cartProducts.length !== 0) {
@@ -75,7 +62,7 @@ export function ShoppingCart(props: ShoppingCartProps) {
   }
 
   useEffect(() => {
-    if (checkoutSuccessful) {
+    if (checkout === true) {
       setIsVisibleCart(false);
       setIsVisibleCheckoutBtn(false);
       setIsVisibleCheckoutField(false);
@@ -85,7 +72,7 @@ export function ShoppingCart(props: ShoppingCartProps) {
         dispatch(removeFromCart(soldProduct));
       });
     }
-  }, [checkoutSuccessful]);
+  }, [checkout]);
 
   useEffect(() => {
     if (total > 0) {
@@ -94,10 +81,6 @@ export function ShoppingCart(props: ShoppingCartProps) {
   }, [total]);
 
   function handleDeleteItem(id: number) {
-    // const newProductsInCart = productsInCart.filter(
-    //   (product) => product.id !== id
-    // );
-
     let productToDelete: Product | undefined = cartProducts.find(
       (product) => product.id === id
     );
@@ -105,8 +88,6 @@ export function ShoppingCart(props: ShoppingCartProps) {
     if (productToDelete) {
       dispatch(removeFromCart(productToDelete));
     }
-
-    // setProductsInCart(newProductsInCart);
   }
 
   return (
@@ -178,8 +159,6 @@ export function ShoppingCart(props: ShoppingCartProps) {
           {isVisibleCheckoutField ? (
             <Checkout
               total={total}
-              checkoutSuccessful={checkoutSuccessful}
-              setCheckoutSuccessfull={setCheckoutSuccessfull}
               isVisibleCheckoutField={isVisibleCheckoutField}
               setIsVisibleCheckoutField={setIsVisibleCheckoutField}
               setIsVisible={setIsVisibleCart}
