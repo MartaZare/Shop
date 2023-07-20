@@ -1,12 +1,48 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+:root {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --cart-color: #ffffff;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --main-font: "Caveat", cursive;
+  --title-font: "Macondo", cursive;
+  --card-color: #edd9b7;
+  --navbar-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme=vinted] {
+  --light-color: #000000;
+  --dark-color: #ffffff;
+  --cart-color: #86bcc1;
+  --primary-color: #04a9b8;
+  --text-accent-color: #00747f;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #f2f2f2;
+  --navbar-color: #ffffff;
+}
+
+[data-theme=rpg] {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #edd9b7;
+}
+
 .cart {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--cart-color);
   width: 400px;
   max-height: 600px;
   border-radius: 20px;
@@ -66,12 +102,12 @@
   content: " €";
 }
 .cart .delete-btn {
-  background-color: #ffffff;
+  background-color: var(--cart-color);
   color: #000000;
   min-width: 20px;
   border: none;
 }
 .cart .delete-btn:hover {
   box-shadow: none;
-  color: #cb9006;
+  color: var(--text-accent-color);
 }/*# sourceMappingURL=Cart.css.map */

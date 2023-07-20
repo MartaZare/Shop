@@ -15,7 +15,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: $primary-color;
+  background: var(--primary-color);
   border-radius: 20px;
 }
 
@@ -27,7 +27,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: $light-color;
+  background: var(--light-color);
 }
 
 .bm-cross-button:hover {
@@ -47,7 +47,7 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: $dark-color;
+  background: var(--dark-color);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -60,8 +60,8 @@
 /* Individual item */
 .bm-item {
   display: inline-block;
-  color: $light-color;
-  font-family: $title-font;
+  color: var(--light-color);
+  font-family: var(--title-font);
   font-size: 24px;
   padding-bottom: 10px;
   margin: 10px;

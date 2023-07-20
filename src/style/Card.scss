@@ -20,7 +20,7 @@
   p {
     font-size: 20px;
     line-height: 20px;
-    font-family: $main-font;
+    font-family: var(--main-font);
     display: inline-block;
     word-break: break-word;
   }

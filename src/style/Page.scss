@@ -21,7 +21,7 @@
   h1 {
     grid-area: 1 / 1 / 2 / 3;
     font-size: 50px;
-    text-shadow: 0 0 7px $primary-color;
+    text-shadow: 0 0 7px var(--primary-color);
     color: #2d2c2c;
   }
   p {

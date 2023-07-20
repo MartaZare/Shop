@@ -10,6 +10,7 @@ import AddUser from "./components/AddUser";
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
 import NavBar from "./NavBar";
+import VintedMode from "./VintedMode";
 
 function App() {
   const [showLogIn, setShowLogIn] = useState(true);
@@ -19,6 +20,7 @@ function App() {
       {showLogIn && <AddUser setShowLogIn={setShowLogIn} />}
       {!showLogIn && (
         <>
+          <VintedMode />
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />

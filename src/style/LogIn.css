@@ -1,36 +1,106 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
-.log-in {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-  width: 350px;
-  height: 450px;
-  padding: 30px;
-  max-width: 100%;
-  background-color: #edd9b7;
-  border-radius: 20px;
-  border: solid 5px rgb(45, 44, 44);
-  box-shadow: 0px 0px 15px 5px #f8bb22;
-  font-family: "Macondo", cursive;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 250px;
-  text-align: center;
-  gap: 10px;
+:root {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --cart-color: #ffffff;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --main-font: "Caveat", cursive;
+  --title-font: "Macondo", cursive;
+  --card-color: #edd9b7;
+  --navbar-color: rgba(0, 0, 0, 0.8);
 }
-.log-in form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+[data-theme=vinted] {
+  --light-color: #000000;
+  --dark-color: #ffffff;
+  --cart-color: #86bcc1;
+  --primary-color: #04a9b8;
+  --text-accent-color: #00747f;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #f2f2f2;
+  --navbar-color: #ffffff;
 }
-.log-in form input {
-  padding: 5px;
-  border-radius: 20px;
-  border: solid 2px #a2a1a1;
+
+[data-theme=rpg] {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #edd9b7;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 25px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: var(--accent-color);
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: var(--main-color);
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: var(--main-color);
+}
+
+/* Sidebar */
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.bm-menu-wrap h2 {
+  font-size: 50px;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: var(--accent-color);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  color: var(--main-text-color);
+  font-family: var(--title-font);
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
 }/*# sourceMappingURL=LogIn.css.map */

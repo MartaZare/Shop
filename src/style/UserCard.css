@@ -1,5 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+:root {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --cart-color: #ffffff;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --main-font: "Caveat", cursive;
+  --title-font: "Macondo", cursive;
+  --card-color: #edd9b7;
+  --navbar-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme=vinted] {
+  --light-color: #000000;
+  --dark-color: #ffffff;
+  --cart-color: #86bcc1;
+  --primary-color: #04a9b8;
+  --text-accent-color: #00747f;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #f2f2f2;
+  --navbar-color: #ffffff;
+}
+
+[data-theme=rpg] {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #edd9b7;
+}
+
 .user-product {
   opacity: 40%;
   box-shadow: none;
@@ -12,7 +48,7 @@
   padding: 5px;
   font-family: "Macondo", cursive;
   font-size: 20px;
-  color: #ffffff;
+  color: var(--light-color);
   border-radius: 20px;
   border: solid 2px #474646;
   background-color: #474646;
@@ -30,18 +66,18 @@
   height: 80%;
 }
 .user .user-card-btn button {
-  background-color: #f14e4e;
-  border: solid 2px #f14e4e;
+  background-color: var(--danger-color);
+  border: solid 2px var(--danger-color);
 }
 .user .user-card-btn button:hover {
-  box-shadow: 0px 0px 15px 5px #f14e4e;
-  border: solid 2px #ffffff;
+  box-shadow: 0px 0px 15px 5px var(--danger-color);
+  border: solid 2px var(--light-color);
 }
 .user .user-card-btn a {
-  background-color: #85a3e3;
-  border: solid 2px #85a3e3;
+  background-color: var(--secondary-color);
+  border: solid 2px var(--secondary-color);
 }
 .user .user-card-btn a:hover {
-  box-shadow: 0px 0px 15px 5px #85a3e3;
-  border: solid 2px #ffffff;
+  box-shadow: 0px 0px 15px 5px var(--secondary-color);
+  border: solid 2px var(--light-color);
 }/*# sourceMappingURL=UserCard.css.map */

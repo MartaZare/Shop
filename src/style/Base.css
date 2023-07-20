@@ -1,12 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+:root {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --cart-color: #ffffff;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --main-font: "Caveat", cursive;
+  --title-font: "Macondo", cursive;
+  --card-color: #edd9b7;
+  --navbar-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme=vinted] {
+  --light-color: #000000;
+  --dark-color: #ffffff;
+  --cart-color: #86bcc1;
+  --primary-color: #04a9b8;
+  --text-accent-color: #00747f;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #f2f2f2;
+  --navbar-color: #ffffff;
+}
+
+[data-theme=rpg] {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #edd9b7;
+}
+
 * {
-  font-family: "Caveat", cursive;
+  font-family: var(--main-font);
 }
 
 html {
-  background-color: #000000;
   height: 100vh;
+}
+
+body {
+  background-color: var(--dark-color);
 }
 
 h1,
@@ -14,7 +53,7 @@ h2,
 li,
 button,
 input {
-  font-family: "Macondo", cursive;
+  font-family: var(--title-font);
 }
 
 h1 {
@@ -30,12 +69,12 @@ button {
   font-size: 20px;
   color: #ffffff;
   border-radius: 20px;
-  border: solid 2px #f8bb22;
-  background-color: #f8bb22;
+  border: solid 2px var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 button:hover {
-  border: solid 2px #ffffff;
-  box-shadow: 0px 0px 15px 5px #f8bb22;
+  border: solid 2px var(--card-color);
+  box-shadow: 0px 0px 15px 5px var(--primary-color);
   color: #ffffff;
 }/*# sourceMappingURL=Base.css.map */

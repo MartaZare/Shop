@@ -1,5 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+:root {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --cart-color: #ffffff;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --main-font: "Caveat", cursive;
+  --title-font: "Macondo", cursive;
+  --card-color: #edd9b7;
+  --navbar-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme=vinted] {
+  --light-color: #000000;
+  --dark-color: #ffffff;
+  --cart-color: #86bcc1;
+  --primary-color: #04a9b8;
+  --text-accent-color: #00747f;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #f2f2f2;
+  --navbar-color: #ffffff;
+}
+
+[data-theme=rpg] {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #edd9b7;
+}
+
 .main-navigation {
   display: flex;
   align-items: center;
@@ -10,7 +46,7 @@
   top: 0;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--navbar-color);
   height: 90px;
   width: 100%;
 }
@@ -25,13 +61,13 @@
   font-size: 25px;
 }
 .nav-list .nav-link {
-  font-family: "Macondo", cursive;
-  color: #ffffff;
+  font-family: var(--title-font);
+  color: var(--light-color);
   text-transform: uppercase;
 }
 .nav-list .nav-link.active {
-  color: #f8bb22;
-  text-shadow: 0 0 7px #f8bb22;
+  color: var(--primary-color);
+  text-shadow: 0 0 7px var(--primary-color);
 }
 
 .open-cart-button {
@@ -42,8 +78,8 @@
 }
 
 .open-cart-button:hover {
-  background-color: #f8bb22;
-  box-shadow: 0px 0px 15px 5px #f8bb22;
+  background-color: var(--primary-color);
+  box-shadow: 0px 0px 15px 5px var(--primary-color);
   border-radius: 20px;
   padding: 5px;
 }/*# sourceMappingURL=Navigation.css.map */

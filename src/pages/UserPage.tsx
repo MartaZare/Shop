@@ -23,9 +23,7 @@ function UserPage() {
         </div>
       </div>
 
-      <Link to="/user/new-product" className="add-btn">
-        Add +
-      </Link>
+      <Link to="/user/new-product">Add +</Link>
 
       <div className="all-cards-flex">
         <div className="all-cards">

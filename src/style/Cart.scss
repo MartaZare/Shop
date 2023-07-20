@@ -2,7 +2,7 @@
 
 .cart {
   @include flex-column-center;
-  background-color: $light-color;
+  background-color: var(--cart-color);
   width: 400px;
   max-height: 600px;
   border-radius: 20px;
@@ -63,14 +63,14 @@
   }
 
   .delete-btn {
-    background-color: $light-color;
-    color: $dark-color;
+    background-color: var(--cart-color);
+    color: #000000;
     min-width: 20px;
     border: none;
   }
 
   .delete-btn:hover {
     box-shadow: none;
-    color: $text-accent-color;
+    color: var(--text-accent-color);
   }
 }

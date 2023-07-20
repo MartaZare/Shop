@@ -1,12 +1,15 @@
 @import "./Variables.scss";
 
 * {
-  font-family: $main-font;
+  font-family: var(--main-font);
 }
 
 html {
-  background-color: $dark-color;
   height: 100vh;
+}
+
+body {
+  background-color: var(--dark-color);
 }
 
 h1,
@@ -14,7 +17,7 @@ h2,
 li,
 button,
 input {
-  font-family: $title-font;
+  font-family: var(--title-font);
 }
 
 h1 {
