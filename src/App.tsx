@@ -8,6 +8,7 @@ import SuccessfullPurchase from "./components/SuccessfullPurchaseProps";
 import UserPage from "./pages/UserPage";
 import AddUser from "./components/AddUser";
 import AddProduct from "./components/AddProduct";
+import EditProduct from "./components/EditProduct";
 
 function App() {
   const [showLogIn, setShowLogIn] = useState(true);
@@ -41,6 +42,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/user" element={<UserPage />} />
             <Route path="/user/new-product" element={<AddProduct />} />
+            <Route path="/user/edit-product" element={<EditProduct />} />
 
             <Route
               path="*"

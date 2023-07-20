@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { API_URL } from "../other/Constants";
 import { setUserProducts } from "../reducers/userProductsSlice";
 import { RootState } from "../store";
+import { Link } from "react-router-dom";
 
 interface UserProductCardProps {
   image: string;
@@ -37,8 +38,12 @@ function UserProductCard(props: UserProductCardProps) {
         <p>{description}</p>
       </>
 
-      <button>Edit</button>
-      <button onClick={() => handleDelete(id)}>Delete</button>
+      <div className="user-card-btn">
+        <Link to="/user/edit-product" state={id}>
+          Edit
+        </Link>
+        <button onClick={() => handleDelete(id)}>Delete</button>
+      </div>
     </div>
   );
 }

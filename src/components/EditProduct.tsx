@@ -1,26 +1,31 @@
-import {
-  ChangeEvent,
-  FormEvent,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { API_URL } from "../other/Constants";
-import { useNavigate } from "react-router-dom";
-import { Image } from "../other/Types";
-import { RootState } from "../store";
+import { Product, Image } from "../other/Types";
 import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
 import { setUserProducts } from "../reducers/userProductsSlice";
 
-function AddProduct() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
-  const [image, setImage] = useState("");
+function EditProduct() {
+  const location = useLocation();
+  const productToEditId = location.state;
+  const [productToEdit, setProductToEdit] = useState<Product>();
   const [imageDatabase, setImageDatabase] = useState<Image[]>([]);
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const [title, setTitle] = useState(productToEdit?.name);
+  const [description, setDescription] = useState(productToEdit?.description);
+  const [price, setPrice] = useState(productToEdit?.price);
+  const [image, setImage] = useState(productToEdit?.image);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch(`${API_URL}/products/${productToEditId}`)
+      .then((response) => response.json())
+      .then((json) => {
+        setProductToEdit(json);
+      });
+  }, []);
 
   useEffect(() => {
     fetch(`${API_URL}/images`)
@@ -29,36 +34,6 @@ function AddProduct() {
         setImageDatabase(json);
       });
   }, []);
-
-  const getProducts = useCallback(() => {
-    fetch(`${API_URL}/products?createdBy=${currentUser}`)
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch(setUserProducts(json));
-      });
-  }, []);
-
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-
-    fetch(`${API_URL}/products`, {
-      method: "POST",
-      body: JSON.stringify({
-        createdBy: currentUser,
-        image: image,
-        name: title,
-        description: description,
-        price: price,
-        bought: false,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-
-    getProducts();
-    navigate("/user");
-  }
 
   const handleTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -76,31 +51,44 @@ function AddProduct() {
     setImage(event.target.value);
   };
 
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    await fetch(`${API_URL}/products/${productToEditId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        image: image,
+        name: title,
+        description: description,
+        price: price,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+
+    await fetch(`${API_URL}/products?createdBy=${currentUser}`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch(setUserProducts(json));
+      });
+
+    navigate("/user");
+  }
+
   return (
     <div className="page-align">
       <div className="page ">
-        <h1>Add New Product</h1>
+        <h1>Edit Product</h1>
 
         <form className="form" onSubmit={handleSubmit}>
-          <div className="form-field">
-            <label htmlFor="creator">Created by:</label>
-            <input
-              type="text"
-              name="creator"
-              value={currentUser}
-              style={{ backgroundColor: "#CCCBCB", color: "grey" }}
-              readOnly
-            />
-          </div>
-
           <div className="form-field">
             <label htmlFor="title">Product:</label>
             <input
               type="text"
               name="title"
-              placeholder="T-shirt..."
+              placeholder={productToEdit?.name}
               onChange={handleTitle}
-              required
             />
           </div>
 
@@ -108,12 +96,11 @@ function AddProduct() {
             <label htmlFor="description">Description:</label>
             <textarea
               name="description"
-              placeholder="Blue, size M.."
+              placeholder={productToEdit?.description}
               maxLength={100}
               rows={3}
               cols={70}
               onChange={handleDescription}
-              required
             ></textarea>
           </div>
 
@@ -123,15 +110,18 @@ function AddProduct() {
               type="number"
               name="price"
               step="0.01"
-              placeholder="5.99"
+              placeholder={productToEdit?.price?.toString()}
               onChange={handlePrice}
-              required
             />
           </div>
 
           <div className="form-field">
             <label htmlFor="image">Image:</label>
-            <select name="image" onChange={handleImage} value={image} required>
+            <select
+              name="image"
+              onChange={handleImage}
+              placeholder={productToEdit?.image}
+            >
               <option value="" disabled>
                 --select image--
               </option>
@@ -152,4 +142,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default EditProduct;
