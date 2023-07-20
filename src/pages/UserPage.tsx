@@ -1,27 +1,18 @@
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { API_URL } from "../other/Constants";
-import { Product } from "../other/Types";
 import UserProductCard from "../components/UserProductCard";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 
+// reload after removing user item from database
+//databasdse state
+//when it chnages you reload display user products (redux)
+// after add it works
+
 function UserPage() {
-  const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
+  const displayedProducts = useSelector(
+    (state: RootState) => state.userProducts.userProducts
+  );
   const currentUser = useSelector((state: RootState) => state.user);
-
-  useEffect(() => {
-    fetch(`${API_URL}/products?createdBy=${currentUser}`)
-      .then((response) => response.json())
-      .then((json) => {
-        setDisplayedProducts(json);
-      });
-  }, [handleClick]);
-
-  function handleClick() {}
-
-  console.log("display user products");
-  console.log(displayedProducts);
 
   return (
     <div className="user">
@@ -32,7 +23,7 @@ function UserPage() {
         </div>
       </div>
 
-      <Link to="/user/new-product" className="add-btn" onClick={handleClick}>
+      <Link to="/user/new-product" className="add-btn">
         Add +
       </Link>
 

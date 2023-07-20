@@ -1,9 +1,16 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import { API_URL } from "../other/Constants";
 import { useNavigate } from "react-router-dom";
 import { Image } from "../other/Types";
 import { RootState } from "../store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserProducts } from "../reducers/userProductsSlice";
 
 function AddProduct() {
   const [title, setTitle] = useState("");
@@ -13,12 +20,23 @@ function AddProduct() {
   const [imageDatabase, setImageDatabase] = useState<Image[]>([]);
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // react when open page getProducts();
 
   useEffect(() => {
     fetch(`${API_URL}/images`)
       .then((response) => response.json())
       .then((json) => {
         setImageDatabase(json);
+      });
+  }, []);
+
+  const getProducts = useCallback(() => {
+    fetch(`${API_URL}/products?createdBy=${currentUser}`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch(setUserProducts(json));
       });
   }, []);
 
@@ -40,6 +58,7 @@ function AddProduct() {
       },
     });
 
+    getProducts();
     navigate("/user");
   }
 
