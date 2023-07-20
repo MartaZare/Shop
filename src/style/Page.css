@@ -1,23 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
-.page-align {
-  height: 80vh;
+.products-page {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.user-page-align {
-  width: 100%;
-  margin-top: 40px;
+.page-align {
+  height: 80vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.products-page {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -75,89 +67,51 @@
   background-color: #85a3e3;
   border-color: #85a3e3;
 }
-
-.user-page {
-  grid-template-rows: 1fr;
-  max-height: 160px;
-}
-.user-page h1 {
-  grid-area: 1/1/2/3;
-  text-align: left;
-}
-.user-page img {
-  grid-area: 1/2/2/3;
-  max-width: 100px;
-  max-height: 100px;
-  justify-self: right;
+.page .page-content {
+  grid-area: 1/1/4/4;
 }
 
 @media only screen and (max-width: 1000px) {
   .page h1 {
-    font-size: 45px;
-  }
-  .page img {
-    width: 225px;
-    height: 225px;
-  }
-  .user-page h1 {
     grid-area: 1/1/2/2;
+    font-size: 55px;
   }
-  .user-page img {
-    grid-area: 1/2/2/3;
-  }
-}
-@media only screen and (max-width: 800px) {
   .page img {
     width: 200px;
     height: 200px;
-  }
-  .user-page h1 {
-    grid-area: 1/1/2/2;
-  }
-  .user-page img {
     grid-area: 1/2/2/3;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .page h1 {
-    grid-area: 1/1/2/4;
-  }
-  .page img {
-    width: 150px;
-    height: 150px;
-    grid-area: 3/1/4/4;
     justify-self: center;
   }
-  .user-page h1 {
+  .page p {
+    grid-area: 2/1/4/4;
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .page h1 {
+    font-size: 46px;
+  }
+  .page img {
+    width: 160px;
+    height: 160px;
+  }
+  .page p {
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .page h1 {
     grid-area: 1/1/2/2;
+    font-size: 35px;
   }
-  .user-page img {
+  .page img {
+    width: 120px;
+    height: 120px;
     grid-area: 1/2/2/3;
+    justify-self: center;
   }
-}
-.user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-.user a {
-  min-width: 100px;
-  max-width: 40%;
-  margin: 10px;
-  padding: 5px;
-  font-family: "Macondo", cursive;
-  font-size: 20px;
-  color: #ffffff;
-  border-radius: 20px;
-  border: solid 2px #f8bb22;
-  background-color: #f8bb22;
-  margin-top: 40px;
-  width: 20%;
-  text-align: center;
-}
-.user a:hover {
-  border: solid 2px #ffffff;
-  box-shadow: 0px 0px 15px 5px #f8bb22;
-  color: #ffffff;
+  .page p {
+    grid-area: 2/1/4/4;
+    font-size: 25px;
+  }
 }/*# sourceMappingURL=Page.css.map */

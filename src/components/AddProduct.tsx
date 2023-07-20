@@ -79,74 +79,81 @@ function AddProduct() {
   return (
     <div className="page-align">
       <div className="page ">
-        <h1>Add New Product</h1>
+        <div className="page-content">
+          <h1>Add New Product</h1>
 
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="form-field">
-            <label htmlFor="creator">Created by:</label>
-            <input
-              type="text"
-              name="creator"
-              value={currentUser}
-              style={{ backgroundColor: "#CCCBCB", color: "grey" }}
-              readOnly
-            />
-          </div>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="form-field">
+              <label htmlFor="creator">Created by:</label>
+              <input
+                type="text"
+                name="creator"
+                value={currentUser}
+                style={{ backgroundColor: "#CCCBCB", color: "grey" }}
+                readOnly
+              />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="title">Product:</label>
-            <input
-              type="text"
-              name="title"
-              placeholder="T-shirt..."
-              onChange={handleTitle}
-              required
-            />
-          </div>
+            <div className="form-field">
+              <label htmlFor="title">Product:</label>
+              <input
+                type="text"
+                name="title"
+                placeholder="T-shirt..."
+                onChange={handleTitle}
+                required
+              />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="description">Description:</label>
-            <textarea
-              name="description"
-              placeholder="Blue, size M.."
-              maxLength={100}
-              rows={3}
-              cols={70}
-              onChange={handleDescription}
-              required
-            ></textarea>
-          </div>
+            <div className="form-field">
+              <label htmlFor="description">Description:</label>
+              <textarea
+                name="description"
+                placeholder="Blue, size M.."
+                maxLength={100}
+                rows={3}
+                cols={70}
+                onChange={handleDescription}
+                required
+              ></textarea>
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="price">Price:</label>
-            <input
-              type="number"
-              name="price"
-              step="0.01"
-              placeholder="5.99"
-              onChange={handlePrice}
-              required
-            />
-          </div>
+            <div className="form-field">
+              <label htmlFor="price">Price:</label>
+              <input
+                type="number"
+                name="price"
+                step="0.01"
+                placeholder="5.99"
+                onChange={handlePrice}
+                required
+              />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="image">Image:</label>
-            <select name="image" onChange={handleImage} value={image} required>
-              <option value="" disabled>
-                --select image--
-              </option>
-              {imageDatabase.map((image) => {
-                return (
-                  <option key={image.id} value={image.url}>
-                    {image.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+            <div className="form-field">
+              <label htmlFor="image">Image:</label>
+              <select
+                name="image"
+                onChange={handleImage}
+                value={image}
+                required
+              >
+                <option value="" disabled>
+                  --select image--
+                </option>
+                {imageDatabase.map((image) => {
+                  return (
+                    <option key={image.id} value={image.url}>
+                      {image.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
 
-          <button type="submit">Submit</button>
-        </form>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   );

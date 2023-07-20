@@ -34,19 +34,19 @@
   width: 100%;
 }
 .cart .items .cart-item {
-  width: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-between;
+  width: 95%;
   margin: 8px;
 }
 .cart .items .cart-item .cart-product {
-  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: flex-start;
+  width: 60%;
   gap: 8px;
 }
 .cart .items .cart-item .cart-product img {
@@ -67,7 +67,7 @@
 }
 .cart .delete-btn {
   background-color: #ffffff;
-  color: black;
+  color: #000000;
   min-width: 20px;
   border: none;
 }

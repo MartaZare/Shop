@@ -6,8 +6,8 @@
 }
 .personal-info .align-button {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .personal-info form {
   display: flex;
@@ -41,7 +41,7 @@
   content: none;
 }
 .personal-info form h3 {
-  color: rgb(225, 13, 13);
+  color: #e10d0d;
 }
 .personal-info form .input-flex {
   display: flex;

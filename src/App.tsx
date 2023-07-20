@@ -9,6 +9,7 @@ import UserPage from "./pages/UserPage";
 import AddUser from "./components/AddUser";
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
+import NavBar from "./NavBar";
 
 function App() {
   const [showLogIn, setShowLogIn] = useState(true);
@@ -18,25 +19,7 @@ function App() {
       {showLogIn && <AddUser setShowLogIn={setShowLogIn} />}
       {!showLogIn && (
         <>
-          <nav className="main-navigation">
-            <ul className="nav-list">
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/products" className="nav-link">
-                  Products
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/user" className="nav-link">
-                  My page
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
+          <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />

@@ -9,14 +9,14 @@
   top: 25px;
 }
 
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: $accent-color;
+#react-burger-menu-btn:hover {
+  box-shadow: none;
 }
 
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
-  background: $main-color;
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: $primary-color;
+  border-radius: 20px;
 }
 
 /* Position and sizing of clickable cross button */
@@ -27,7 +27,11 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: $main-color;
+  background: $light-color;
+}
+
+.bm-cross-button:hover {
+  box-shadow: none;
 }
 
 /* Sidebar */
@@ -43,7 +47,7 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: $accent-color;
+  background: $dark-color;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -56,15 +60,16 @@
 /* Individual item */
 .bm-item {
   display: inline-block;
-  color: $main-text-color;
+  color: $light-color;
   font-family: $title-font;
   font-size: 24px;
   padding-bottom: 10px;
+  margin: 10px;
 }
 
 /* Styling of overlay */
 .bm-overlay {
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(67, 67, 67, 0.478);
 }

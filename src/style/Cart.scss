@@ -5,7 +5,6 @@
   background-color: $light-color;
   width: 400px;
   max-height: 600px;
-
   border-radius: 20px;
   padding: 20px;
   margin: 20px;
@@ -31,15 +30,15 @@
     overflow: auto;
     width: 100%;
     .cart-item {
-      width: 95%;
       @include flex-row-center;
       justify-content: space-between;
+      width: 95%;
       margin: 8px;
 
       .cart-product {
-        width: 60%;
         @include flex-row-center;
         justify-content: flex-start;
+        width: 60%;
         gap: 8px;
 
         img {
@@ -65,7 +64,7 @@
 
   .delete-btn {
     background-color: $light-color;
-    color: black;
+    color: $dark-color;
     min-width: 20px;
     border: none;
   }

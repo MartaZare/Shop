@@ -78,65 +78,66 @@ function EditProduct() {
 
   return (
     <div className="page-align">
-      <div className="page ">
-        <h1>Edit Product</h1>
+      <div className="page">
+        <div className="page-content">
+          <h1>Edit Product</h1>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="form-field">
+              <label htmlFor="title">Product:</label>
+              <input
+                type="text"
+                name="title"
+                placeholder={productToEdit?.name}
+                onChange={handleTitle}
+              />
+            </div>
 
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="form-field">
-            <label htmlFor="title">Product:</label>
-            <input
-              type="text"
-              name="title"
-              placeholder={productToEdit?.name}
-              onChange={handleTitle}
-            />
-          </div>
+            <div className="form-field">
+              <label htmlFor="description">Description:</label>
+              <textarea
+                name="description"
+                placeholder={productToEdit?.description}
+                maxLength={100}
+                rows={3}
+                cols={70}
+                onChange={handleDescription}
+              ></textarea>
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="description">Description:</label>
-            <textarea
-              name="description"
-              placeholder={productToEdit?.description}
-              maxLength={100}
-              rows={3}
-              cols={70}
-              onChange={handleDescription}
-            ></textarea>
-          </div>
+            <div className="form-field">
+              <label htmlFor="price">Price:</label>
+              <input
+                type="number"
+                name="price"
+                step="0.01"
+                placeholder={productToEdit?.price?.toString()}
+                onChange={handlePrice}
+              />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="price">Price:</label>
-            <input
-              type="number"
-              name="price"
-              step="0.01"
-              placeholder={productToEdit?.price?.toString()}
-              onChange={handlePrice}
-            />
-          </div>
+            <div className="form-field">
+              <label htmlFor="image">Image:</label>
+              <select
+                name="image"
+                onChange={handleImage}
+                placeholder={productToEdit?.image}
+              >
+                <option value="" disabled>
+                  --select image--
+                </option>
+                {imageDatabase.map((image) => {
+                  return (
+                    <option key={image.id} value={image.url}>
+                      {image.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="image">Image:</label>
-            <select
-              name="image"
-              onChange={handleImage}
-              placeholder={productToEdit?.image}
-            >
-              <option value="" disabled>
-                --select image--
-              </option>
-              {imageDatabase.map((image) => {
-                return (
-                  <option key={image.id} value={image.url}>
-                    {image.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-
-          <button type="submit">Submit</button>
-        </form>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   );
