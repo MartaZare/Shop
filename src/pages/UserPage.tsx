@@ -16,7 +16,12 @@ function UserPage() {
       .then((json) => {
         setDisplayedProducts(json);
       });
-  }, []);
+  }, [handleClick]);
+
+  function handleClick() {}
+
+  console.log("display user products");
+  console.log(displayedProducts);
 
   return (
     <div className="user">
@@ -27,7 +32,7 @@ function UserPage() {
         </div>
       </div>
 
-      <Link to="/user/new-product" className="add-btn">
+      <Link to="/user/new-product" className="add-btn" onClick={handleClick}>
         Add +
       </Link>
 

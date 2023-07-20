@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { API_URL } from "../other/Constants";
 import { Product } from "../other/Types";
@@ -10,40 +10,47 @@ export default function Products() {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const checkout = useSelector((state: RootState) => state.checkout);
 
+  const getProducts = useCallback(
+    (input: string, setter: (arg: Product[]) => void) => {
+      fetch(`${API_URL}/products${input}`)
+        .then((response) => response.json())
+        .then((json) => {
+          setter(json);
+        });
+    },
+    []
+  );
+
   useEffect(() => {
-    fetch(`${API_URL}/products`)
-      .then((response) => response.json())
-      .then((json) => {
-        setAllProducts(json);
-      });
+    getProducts("", setAllProducts);
   }, []);
 
   useEffect(() => {
-    fetch(`${API_URL}/products?bought=false`)
-      .then((response) => response.json())
-      .then((json) => {
-        setDisplayedProducts(json);
-      });
+    getProducts("?bought=false", setDisplayedProducts);
   }, [checkout]);
 
-  function displayOriginalProducts() {
-    allProducts.map((product) => {
-      fetch(`${API_URL}/products/${product.id}`, {
-        method: "PATCH",
-        body: JSON.stringify({
-          bought: false,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
-    });
+  async function displayOriginalProducts() {
+    await Promise.all(
+      allProducts.map((product) => {
+        fetch(`${API_URL}/products/${product.id}`, {
+          method: "PATCH",
+          body: JSON.stringify({
+            bought: false,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+      })
+    );
 
-    for (let i = 11; i < allProducts.length; i++) {
-      fetch(`${API_URL}/products/${i}`, {
+    for (let i = 13; i <= allProducts.length; i++) {
+      await fetch(`${API_URL}/products/${i}`, {
         method: "DELETE",
       });
     }
+
+    getProducts("", setDisplayedProducts);
   }
 
   return (

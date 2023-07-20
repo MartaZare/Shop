@@ -91,40 +91,22 @@
       "bought": false
     },
     {
-      "createdBy": "vxcxv",
-      "image": "images/magic-ring.png",
-      "name": "cvxvxc",
-      "description": "cxvxcv",
-      "price": 55,
-      "bought": false,
-      "id": 16
+      "id": 11,
+      "createdBy": "author",
+      "image": "images/amulet.png",
+      "name": "Destiny's Vision",
+      "price": 45.5,
+      "description": "Crafted with ancient wisdom and infused with mystical energies, this amulet becomes a conduit to reveal the hidden threads of destiny.",
+      "bought": false
     },
     {
-      "createdBy": "vxcxv",
+      "id": 12,
+      "createdBy": "author",
       "image": "images/magic-ring.png",
-      "name": "dsfsd",
-      "description": "dsfsdf",
-      "price": 3,
-      "bought": false,
-      "id": 17
-    },
-    {
-      "createdBy": "wserdfs",
-      "image": "images/magic-boot.png",
-      "name": "wer",
-      "description": "ewrwe",
-      "price": 3,
-      "bought": false,
-      "id": 18
-    },
-    {
-      "createdBy": "dsf",
-      "image": "images/magic-ring.png",
-      "name": "asdas",
-      "description": "dsadas",
-      "price": 3,
-      "bought": false,
-      "id": 19
+      "name": "Compass Ring",
+      "price": 1.99,
+      "description": "It leads you through life's twists and turns, helping you find your way when the path seems uncertain.",
+      "bought": false
     }
   ],
   "images": [
