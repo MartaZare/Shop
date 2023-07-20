@@ -1,8 +1,9 @@
-@import url("../style/Variables.css");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
 .all-cards-flex {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .all-cards {

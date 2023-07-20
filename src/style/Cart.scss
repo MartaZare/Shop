@@ -1,18 +1,5 @@
 @import "./Variables.scss";
 
-.open-cart-button {
-  position: fixed;
-  top: 15px;
-  right: 30px;
-  width: 70px;
-}
-.open-cart-button:hover {
-  background-color: $glow-color;
-  box-shadow: 0px 0px 15px 5px $glow-color;
-  border-radius: 20px;
-  padding: 5px;
-}
-
 .cart {
   @include flex-column-center;
   background-color: $light-color;
