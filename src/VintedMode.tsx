@@ -1,9 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { rpg, vinted } from "./reducers/modeSlice";
 import Toggle from "react-toggle";
+import { RootState } from "./store";
 
 function VintedMode() {
   const dispatch = useDispatch();
+  const currentMode = useSelector((state: RootState) => state.mode);
 
   const setVintedMode = () => {
     document.body.setAttribute("data-theme", "vinted");
@@ -26,7 +28,7 @@ function VintedMode() {
   return (
     <label>
       <Toggle
-        defaultChecked={false}
+        defaultChecked={currentMode}
         icons={{
           checked: <p>V</p>,
           unchecked: null,
