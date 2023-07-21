@@ -1,5 +1,6 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
+import VintedMode from "./VintedMode";
 
 class NavDropdown extends React.Component {
   showSettings(event: any) {
@@ -9,6 +10,7 @@ class NavDropdown extends React.Component {
   render() {
     return (
       <Menu>
+        <VintedMode />
         <a href="/">Home</a>
         <a href="/products">Products</a>
         <a href="/user">My Page</a>

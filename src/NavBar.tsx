@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { NavLink } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
+import VintedMode from "./VintedMode";
 
 function NavBar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,6 +23,7 @@ function NavBar() {
     <div className="navigation">
       {!isVisible && (
         <nav className="main-navigation">
+          <VintedMode />
           <ul className="nav-list">
             <li className="nav-item">
               <NavLink to="/" className="nav-link">

@@ -1,4 +1,10 @@
+import { useDispatch } from "react-redux";
+import { rpg, vinted } from "./reducers/modeSlice";
+import Toggle from "react-toggle";
+
 function VintedMode() {
+  const dispatch = useDispatch();
+
   const setVintedMode = () => {
     document.body.setAttribute("data-theme", "vinted");
   };
@@ -7,37 +13,27 @@ function VintedMode() {
     document.body.setAttribute("data-theme", "rpg");
   };
 
-  const toggleVintedTheme = (e: React.ChangeEvent) => {
-    if (e.currentTarget) {
+  const toggleVintedTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.currentTarget.checked) {
       setVintedMode();
+      dispatch(vinted());
     } else {
       setRPGMode();
-    }
-  };
-
-  const toggleRPGTheme = (e: React.ChangeEvent) => {
-    if (e.currentTarget) {
-      setRPGMode();
-    } else {
-      setVintedMode();
+      dispatch(rpg());
     }
   };
 
   return (
-    <div className="vinted">
-      <input
-        className="vinted_input"
-        type="checkbox"
-        id="vinted-toggle"
+    <label>
+      <Toggle
+        defaultChecked={false}
+        icons={{
+          checked: <p>V</p>,
+          unchecked: null,
+        }}
         onChange={toggleVintedTheme}
       />
-      <input
-        className="rpg_input"
-        type="checkbox"
-        id="rpg-toggle"
-        onChange={toggleRPGTheme}
-      />
-    </div>
+    </label>
   );
 }
 

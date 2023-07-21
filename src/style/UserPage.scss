@@ -2,15 +2,17 @@
 
 .user-page-align {
   width: 100%;
-  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  margin-top: 20px;
 }
 
 .user-page {
   grid-template-rows: 1fr;
   max-height: 160px;
+  margin: 0;
+  margin-bottom: 30px;
 
   h1 {
     grid-area: 1 / 1 / 2 / 3;
@@ -26,17 +28,22 @@
 }
 
 .user {
-  @include display-column-center;
+  @include flex-column-center;
   justify-content: flex-start;
 
   a {
     @include button;
-    margin-top: 40px;
     width: 20%;
     text-align: center;
   }
 
   a:hover {
     @include button-on-hover;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .user-page-align {
+    margin-top: 80px;
   }
 }

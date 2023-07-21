@@ -30,8 +30,9 @@
   background: var(--light-color);
 }
 
-.bm-cross-button:hover {
+#react-burger-cross-btn:hover {
   box-shadow: none;
+  color: var(--primary-color);
 }
 
 /* Sidebar */

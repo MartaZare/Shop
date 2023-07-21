@@ -3,6 +3,7 @@ import cartSlice from "./reducers/cartSlice";
 import checkoutSlice from "./reducers/checkoutSlice";
 import userSlice from "./reducers/userSlice";
 import userProductsSlice from "./reducers/userProductsSlice";
+import modeSlice from "./reducers/modeSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     checkout: checkoutSlice,
     user: userSlice,
     userProducts: userProductsSlice,
+    mode: modeSlice,
   },
 });
 

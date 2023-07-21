@@ -113,41 +113,53 @@
     font-size: 55px;
   }
   .page img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     grid-area: 1/2/2/3;
     justify-self: center;
   }
   .page p {
     grid-area: 2/1/4/4;
-    font-size: 30px;
+    font-size: 28px;
   }
 }
 @media only screen and (max-width: 900px) {
   .page h1 {
-    font-size: 46px;
+    font-size: 50px;
   }
   .page img {
     width: 160px;
     height: 160px;
   }
   .page p {
-    font-size: 26px;
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .page h1 {
+    font-size: 40px;
+  }
+  .page img {
+    width: 130px;
+    height: 130px;
+  }
+  .page p {
+    font-size: 24px;
   }
 }
 @media only screen and (max-width: 600px) {
   .page h1 {
     grid-area: 1/1/2/2;
-    font-size: 35px;
+    font-size: 30px;
   }
   .page img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     grid-area: 1/2/2/3;
     justify-self: center;
   }
   .page p {
     grid-area: 2/1/4/4;
-    font-size: 25px;
+    font-size: 24px;
   }
 }/*# sourceMappingURL=Page.css.map */

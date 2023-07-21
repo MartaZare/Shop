@@ -36,71 +36,35 @@
   --card-color: #edd9b7;
 }
 
-/* Position and sizing of burger button */
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 25px;
-}
-
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: var(--accent-color);
-}
-
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
-  background: var(--main-color);
-}
-
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
-
-/* Color/shape of close button cross */
-.bm-cross {
-  background: var(--main-color);
-}
-
-/* Sidebar */
-.bm-menu-wrap {
-  position: fixed;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-.bm-menu-wrap h2 {
-  font-size: 50px;
-}
-
-/* General sidebar styles */
-.bm-menu {
-  background: var(--accent-color);
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-}
-
-/* Wrapper for item list */
-.bm-item-list {
-  padding: 0.8em;
-}
-
-/* Individual item */
-.bm-item {
-  display: inline-block;
-  color: var(--main-text-color);
+.log-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 350px;
+  height: 450px;
+  padding: 30px;
+  max-width: 100%;
+  background-color: var(--card-color);
+  border-radius: 20px;
+  border: solid 5px rgb(45, 44, 44);
+  box-shadow: 0px 0px 15px 5px var(--primary-color);
   font-family: var(--title-font);
-  font-size: 24px;
-  padding-bottom: 10px;
+  height: 250px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
-
-/* Styling of overlay */
-.bm-overlay {
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.3);
+.log-in form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.log-in form input {
+  padding: 5px;
+  border-radius: 20px;
+  border: solid 2px #a2a1a1;
 }/*# sourceMappingURL=LogIn.css.map */

@@ -54,14 +54,14 @@
       font-size: 55px;
     }
     img {
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
       grid-area: 1 / 2 / 2 / 3;
       justify-self: center;
     }
     p {
       grid-area: 2 / 1 / 4 / 4;
-      font-size: 30px;
+      font-size: 28px;
     }
   }
 }
@@ -69,14 +69,29 @@
 @media only screen and (max-width: 900px) {
   .page {
     h1 {
-      font-size: 46px;
+      font-size: 50px;
     }
     img {
       width: 160px;
       height: 160px;
     }
     p {
-      font-size: 26px;
+      font-size: 28px;
+    }
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .page {
+    h1 {
+      font-size: 40px;
+    }
+    img {
+      width: 130px;
+      height: 130px;
+    }
+    p {
+      font-size: 24px;
     }
   }
 }
@@ -85,17 +100,17 @@
   .page {
     h1 {
       grid-area: 1 / 1 / 2 / 2;
-      font-size: 35px;
+      font-size: 30px;
     }
     img {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       grid-area: 1 / 2 / 2 / 3;
       justify-self: center;
     }
     p {
       grid-area: 2 / 1 / 4 / 4;
-      font-size: 25px;
+      font-size: 24px;
     }
   }
 }

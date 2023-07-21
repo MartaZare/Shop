@@ -54,6 +54,23 @@
   background-color: #474646;
 }
 
+.user a {
+  min-width: 100px;
+  max-width: 40%;
+  margin: 10px;
+  padding: 5px;
+  font-family: "Macondo", cursive;
+  font-size: 20px;
+  color: #ffffff;
+  border-radius: 20px;
+  border: solid 2px var(--primary-color);
+  background-color: var(--primary-color);
+}
+.user a:hover {
+  border: solid 2px #ffffff;
+  box-shadow: 0px 0px 15px 5px var(--primary-color);
+  color: #ffffff;
+}
 .user .user-card-btn {
   width: 100%;
   height: 50px;
@@ -71,7 +88,7 @@
 }
 .user .user-card-btn button:hover {
   box-shadow: 0px 0px 15px 5px var(--danger-color);
-  border: solid 2px var(--light-color);
+  border: solid 2px #ffffff;
 }
 .user .user-card-btn a {
   background-color: var(--secondary-color);
@@ -79,5 +96,5 @@
 }
 .user .user-card-btn a:hover {
   box-shadow: 0px 0px 15px 5px var(--secondary-color);
-  border: solid 2px var(--light-color);
+  border: solid 2px #ffffff;
 }/*# sourceMappingURL=UserCard.css.map */
