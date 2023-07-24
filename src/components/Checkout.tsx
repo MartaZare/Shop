@@ -4,17 +4,24 @@ interface CheckoutProps {
   total: number;
   isVisibleCheckoutField: boolean;
   setIsVisibleCheckoutField: (arg: boolean) => void;
-  setIsVisible: (arg: boolean) => void;
+  setIsVisibleCart: (arg: boolean) => void;
 }
 
 export default function Checkout(props: CheckoutProps) {
+  const {
+    total,
+    isVisibleCheckoutField,
+    setIsVisibleCheckoutField,
+    setIsVisibleCart,
+  } = props;
+
   function closeCheckout() {
-    props.setIsVisibleCheckoutField(false);
+    setIsVisibleCheckoutField(false);
   }
 
   return (
     <>
-      {props.isVisibleCheckoutField && (
+      {isVisibleCheckoutField && (
         <div className="cart">
           <img
             src="images/close.png"
@@ -25,10 +32,7 @@ export default function Checkout(props: CheckoutProps) {
 
           <h1>Order details</h1>
           <div className="personal-info">
-            <CheckoutForm
-              total={props.total}
-              setIsVisible={props.setIsVisible}
-            />
+            <CheckoutForm total={total} setIsVisibleCart={setIsVisibleCart} />
           </div>
         </div>
       )}

@@ -3,7 +3,7 @@ import { slide as Menu } from "react-burger-menu";
 import VintedMode from "./VintedMode";
 import { NavLink } from "react-router-dom";
 
-class NavDropdown extends React.Component {
+export default class NavDropdown extends React.Component {
   showSettings(event: any) {
     event.preventDefault();
   }
@@ -19,5 +19,3 @@ class NavDropdown extends React.Component {
     );
   }
 }
-
-export default NavDropdown;

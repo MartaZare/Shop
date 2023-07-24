@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
-import ProductCard from "../components/ProductCard";
-import { API_URL } from "../other/Constants";
-import { Product } from "../other/Types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { setUserProducts } from "../reducers/userProductsSlice";
+import ProductCard from "../components/ProductCard";
+import { API_URL } from "../other/Constants";
+import { Product } from "../other/Types";
 
 export default function Products() {
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const checkout = useSelector((state: RootState) => state.checkout);
-  const dispatch = useDispatch();
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const dispatch = useDispatch();
 
   const getProducts = useCallback(
     (input: string, setter: (arg: Product[]) => void) => {

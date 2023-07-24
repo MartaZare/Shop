@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import Checkout from "./Checkout";
-import { Product } from "../other/Types";
-import { API_URL } from "../other/Constants";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { removeFromCart } from "../reducers/cartSlice";
+import Checkout from "./Checkout";
+import { Product } from "../other/Types";
+import { API_URL } from "../other/Constants";
 
-export function ShoppingCart() {
-  const [isVisibleCart, setIsVisibleCart] = useState(false);
+export default function ShoppingCart() {
   const [total, setTotal] = useState(0);
   const [isVisibleCheckoutField, setIsVisibleCheckoutField] = useState(false);
   const [isVisibleCheckoutBtn, setIsVisibleCheckoutBtn] = useState(false);
-  const [isVisibleProducts, setisVisibleProducts] = useState(false);
+  const [isVisibleProducts, setIsVisibleProducts] = useState(false);
+  const [isVisibleCart, setIsVisibleCart] = useState(false);
+
   const dispatch = useDispatch();
   const cartProducts = useSelector((state: RootState) => state.products);
   const checkout = useSelector((state: RootState) => state.checkout);
@@ -34,8 +35,7 @@ export function ShoppingCart() {
   useEffect(() => {
     if (cartProducts.length !== 0) {
       setIsVisibleCheckoutBtn(true);
-      setTotal(0);
-      setisVisibleProducts(true);
+      setIsVisibleProducts(true);
 
       let newTotal: number = 0;
       cartProducts.map((product) => {
@@ -47,7 +47,7 @@ export function ShoppingCart() {
     if (cartProducts.length === 0) {
       setIsVisibleCheckoutBtn(false);
     }
-  }, [cartProducts, total]);
+  }, [cartProducts]);
 
   function openCart() {
     setIsVisibleCart(true);
@@ -107,6 +107,7 @@ export function ShoppingCart() {
             className="close-cart-button"
             onClick={closeCart}
           />
+
           <h1>Shopping Cart</h1>
           {isVisibleProducts && (
             <div className="items">
@@ -122,9 +123,11 @@ export function ShoppingCart() {
                               <p>{product.name}</p>
                             </div>
                           </div>
+
                           <p className="cart-product-price">
                             {Number(product.price.toFixed(2))}
                           </p>
+
                           <button
                             className="delete-btn"
                             onClick={() => {
@@ -156,16 +159,16 @@ export function ShoppingCart() {
               <p>Sorry, your cart is currently empty...</p>
             </>
           )}
+
           {isVisibleCheckoutField ? (
             <Checkout
               total={total}
               isVisibleCheckoutField={isVisibleCheckoutField}
               setIsVisibleCheckoutField={setIsVisibleCheckoutField}
-              setIsVisible={setIsVisibleCart}
+              setIsVisibleCart={setIsVisibleCart}
             />
           ) : null}
         </div>
-        // </div>
       )}
     </>
   );

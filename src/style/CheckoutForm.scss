@@ -1,9 +1,7 @@
 @import "./Variables.scss";
 
 .personal-info {
-  .align-button {
-    @include flex-row-center;
-  }
+  @include flex-column-center;
 
   form {
     @include flex-column-center;

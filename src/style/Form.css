@@ -1,9 +1,47 @@
-@import url("../style/Variables.css");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+:root {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --accent-color: #ffffff;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --main-font: "Caveat", cursive;
+  --title-font: "Macondo", cursive;
+  --card-color: #edd9b7;
+  --navbar-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme=vinted] {
+  --light-color: #000000;
+  --dark-color: #ffffff;
+  --accent-color: #86bcc1;
+  --primary-color: #04a9b8;
+  --text-accent-color: #00747f;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #f2f2f2;
+  --navbar-color: #ffffff;
+}
+
+[data-theme=rpg] {
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --primary-color: #f8bb22;
+  --text-accent-color: #cb9006;
+  --secondary-color: #85a3e3;
+  --danger-color: #f14e4e;
+  --card-color: #edd9b7;
+}
+
 .form {
   grid-area: 2/1/4/3;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -14,14 +52,19 @@
   display: flex;
   justify-content: space-between;
 }
+.form-field label {
+  font-family: var(--title-font);
+  font-size: 20px;
+}
 .form-field input,
 .form-field textarea,
 .form-field select {
+  font-family: var(--main-font);
   width: 50%;
   border-radius: 20px;
   padding: 3px;
   padding-left: 5px;
-  border: solid 2px #000000;
+  border: solid 2px var(--accent-color);
   width: 60%;
 }
 

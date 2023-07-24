@@ -3,7 +3,7 @@ import { rpg, vinted } from "./reducers/modeSlice";
 import Toggle from "react-toggle";
 import { RootState } from "./store";
 
-function VintedMode() {
+export default function VintedMode() {
   const dispatch = useDispatch();
   const currentMode = useSelector((state: RootState) => state.mode);
 
@@ -38,5 +38,3 @@ function VintedMode() {
     </label>
   );
 }
-
-export default VintedMode;

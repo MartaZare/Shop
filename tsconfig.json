@@ -17,6 +17,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+
   /* To reduce 100% CPU usage by visual studio on MAC */
   "files.exclude": {
     "**/.git": true,

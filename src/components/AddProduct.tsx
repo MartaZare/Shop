@@ -5,22 +5,23 @@ import {
   useEffect,
   useState,
 } from "react";
-import { API_URL } from "../other/Constants";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { API_URL } from "../other/Constants";
 import { Image } from "../other/Types";
 import { RootState } from "../store";
-import { useDispatch, useSelector } from "react-redux";
 import { setUserProducts } from "../reducers/userProductsSlice";
 
-function AddProduct() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
-  const [image, setImage] = useState("");
+export default function AddProduct() {
   const [imageDatabase, setImageDatabase] = useState<Image[]>([]);
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState(0);
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     fetch(`${API_URL}/images`)
@@ -30,18 +31,10 @@ function AddProduct() {
       });
   }, []);
 
-  const getProducts = useCallback(() => {
-    fetch(`${API_URL}/products?createdBy=${currentUser}`)
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch(setUserProducts(json));
-      });
-  }, []);
-
-  function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    fetch(`${API_URL}/products`, {
+    await fetch(`${API_URL}/products`, {
       method: "POST",
       body: JSON.stringify({
         createdBy: currentUser,
@@ -56,7 +49,12 @@ function AddProduct() {
       },
     });
 
-    getProducts();
+    await fetch(`${API_URL}/products?createdBy=${currentUser}`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch(setUserProducts(json));
+      });
+
     navigate("/user");
   }
 
@@ -158,5 +156,3 @@ function AddProduct() {
     </div>
   );
 }
-
-export default AddProduct;

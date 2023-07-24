@@ -26,7 +26,7 @@ export default function Home() {
 
         {!mode && (
           <>
-            <h1>Welcome To The Quirky Cauldron!</h1>
+            <h1>Welcome To My Magic Shop!</h1>
             <p>
               Hail, wanderer! Welcome to my humble emporium, a place inspired by
               the globally renowned shop Vinted and many medieval RPG. Seeking a

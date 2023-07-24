@@ -2,7 +2,7 @@
 
 .cart {
   @include flex-column-center;
-  background-color: var(--cart-color);
+  background-color: var(--accent-color);
   width: 400px;
   max-height: 600px;
   border-radius: 20px;
@@ -63,7 +63,7 @@
   }
 
   .delete-btn {
-    background-color: var(--cart-color);
+    background-color: var(--accent-color);
     color: #000000;
     min-width: 20px;
     border: none;

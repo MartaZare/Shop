@@ -3,7 +3,7 @@
 :root {
   --light-color: #ffffff;
   --dark-color: #000000;
-  --cart-color: #ffffff;
+  --accent-color: #ffffff;
   --primary-color: #f8bb22;
   --text-accent-color: #cb9006;
   --secondary-color: #85a3e3;
@@ -17,7 +17,7 @@
 [data-theme=vinted] {
   --light-color: #000000;
   --dark-color: #ffffff;
-  --cart-color: #86bcc1;
+  --accent-color: #86bcc1;
   --primary-color: #04a9b8;
   --text-accent-color: #00747f;
   --secondary-color: #85a3e3;
@@ -44,6 +44,7 @@
 }
 
 .page-align {
+  margin-top: 40px;
   height: 80vh;
   display: flex;
   align-items: center;

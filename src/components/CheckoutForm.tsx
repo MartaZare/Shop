@@ -1,20 +1,21 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../store";
+import { useDispatch } from "react-redux";
 import { notPurchased, purchased } from "../reducers/checkoutSlice";
 
 interface CheckoutFormProps {
   total: number;
-  setIsVisible: (arg: boolean) => void;
+  setIsVisibleCart: (arg: boolean) => void;
 }
 
 export default function CheckoutForm(props: CheckoutFormProps) {
-  const [cash, setCash] = useState(false);
-  const [card, setCard] = useState(false);
-  const [soul, setSoul] = useState(false);
+  const { total, setIsVisibleCart } = props;
   const [pressedSubmit, setPressedSubmit] = useState(false);
   const [payBtnActive, setPayBtnActive] = useState(false);
   const dispatch = useDispatch();
+
+  const [cash, setCash] = useState(false);
+  const [card, setCard] = useState(false);
+  const [soul, setSoul] = useState(false);
 
   function handleCashClick(event: React.MouseEvent<HTMLInputElement>) {
     paymentChecked(event);
@@ -39,6 +40,7 @@ export default function CheckoutForm(props: CheckoutFormProps) {
 
   function paymentChecked(event: React.MouseEvent<HTMLInputElement>) {
     const target = event.target as HTMLInputElement;
+
     if (target.checked) {
       setPayBtnActive(true);
     } else if (!cash && !card && !soul) {
@@ -53,9 +55,10 @@ export default function CheckoutForm(props: CheckoutFormProps) {
   function isCheckoutSuccessful(event: React.FormEvent) {
     event.preventDefault();
     dispatch(purchased());
+
     setTimeout(() => {
       dispatch(notPurchased());
-      props.setIsVisible(false);
+      setIsVisibleCart(false);
     }, 4000);
   }
 
@@ -68,6 +71,7 @@ export default function CheckoutForm(props: CheckoutFormProps) {
             <input type="text" placeholder="First name" required />
             <input type="text" placeholder="Last name" required />
           </div>
+
           <div className="input-flex">
             <input type="email" placeholder="Email" required />
             <input type="tel" placeholder="Phone number" required />
@@ -76,6 +80,7 @@ export default function CheckoutForm(props: CheckoutFormProps) {
         <label>Shipping</label>
         <>
           <input type="text" placeholder="Street address" required />
+
           <div className="input-flex">
             <input type="text" placeholder="Postal code" required />
             <input type="text" placeholder="Country" required />
@@ -103,6 +108,7 @@ export default function CheckoutForm(props: CheckoutFormProps) {
               required
             />
             <img src="/images/banknotes.png" alt="Cash" />
+            <p style={{ fontSize: "16px" }}>Cash</p>
           </label>
 
           <label
@@ -119,6 +125,7 @@ export default function CheckoutForm(props: CheckoutFormProps) {
               onClick={handleCardClick}
             />
             <img src="/images/credit.png" alt="Card" />
+            <p style={{ fontSize: "16px" }}>Card</p>
           </label>
 
           <label
@@ -135,15 +142,14 @@ export default function CheckoutForm(props: CheckoutFormProps) {
               onClick={handleSoulClick}
             />
             <img src="/images/soul.png" alt="Soul" />
+            <p style={{ fontSize: "16px" }}>Soul</p>
           </label>
         </div>
       </form>
 
-      <div className="align-button">
-        <button type="submit" form="checkout-form" onClick={handlePayBtnClick}>
-          Pay: {Number(props.total.toFixed(2))} €
-        </button>
-      </div>
+      <button type="submit" form="checkout-form" onClick={handlePayBtnClick}>
+        Pay: {Number(total.toFixed(2))} €
+      </button>
     </>
   );
 }

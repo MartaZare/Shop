@@ -1,23 +1,25 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { API_URL } from "../other/Constants";
-import { Product, Image } from "../other/Types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { setUserProducts } from "../reducers/userProductsSlice";
+import { API_URL } from "../other/Constants";
+import { Product, Image } from "../other/Types";
 
-function EditProduct() {
+export default function EditProduct() {
+  const navigate = useNavigate();
   const location = useLocation();
   const productToEditId = location.state;
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const dispatch = useDispatch();
+
   const [productToEdit, setProductToEdit] = useState<Product>();
   const [imageDatabase, setImageDatabase] = useState<Image[]>([]);
-  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+
   const [title, setTitle] = useState(productToEdit?.name);
   const [description, setDescription] = useState(productToEdit?.description);
   const [price, setPrice] = useState(productToEdit?.price);
   const [image, setImage] = useState(productToEdit?.image);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(`${API_URL}/products/${productToEditId}`)
@@ -142,5 +144,3 @@ function EditProduct() {
     </div>
   );
 }
-
-export default EditProduct;

@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
 import { API_URL } from "../other/Constants";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { setUserProducts } from "../reducers/userProductsSlice";
 import { RootState } from "../store";
-import { Link } from "react-router-dom";
 
 interface UserProductCardProps {
   image: string;
@@ -12,7 +12,7 @@ interface UserProductCardProps {
   id: number;
 }
 
-function UserProductCard(props: UserProductCardProps) {
+export default function UserProductCard(props: UserProductCardProps) {
   const { image, name, price, description, id } = props;
   const dispatch = useDispatch();
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
@@ -47,5 +47,3 @@ function UserProductCard(props: UserProductCardProps) {
     </div>
   );
 }
-
-export default UserProductCard;

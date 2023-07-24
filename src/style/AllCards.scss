@@ -2,6 +2,7 @@
 
 .all-cards-flex {
   @include flex-row-center;
+  margin-top: 60px;
 }
 
 .all-cards {

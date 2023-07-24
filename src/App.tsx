@@ -1,22 +1,22 @@
 import "./style/App.scss";
 import { useState } from "react";
+import { Route, Routes, Link } from "react-router-dom";
+import NavBar from "./NavBar";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import { Route, Routes, Link, NavLink } from "react-router-dom";
-import { ShoppingCart } from "./components/ShoppingCart";
-import SuccessfullPurchase from "./components/SuccessfullPurchaseProps";
 import UserPage from "./pages/UserPage";
-import AddUser from "./components/AddUser";
+import ShoppingCart from "./components/ShoppingCart";
+import SuccessfullPurchase from "./components/SuccessfullPurchase";
+import LogIn from "./components/LogIn";
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
-import NavBar from "./NavBar";
 
 function App() {
   const [showLogIn, setShowLogIn] = useState(true);
 
   return (
     <>
-      {showLogIn && <AddUser setShowLogIn={setShowLogIn} />}
+      {showLogIn && <LogIn setShowLogIn={setShowLogIn} />}
       {!showLogIn && (
         <>
           <NavBar />

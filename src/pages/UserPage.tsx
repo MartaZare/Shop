@@ -3,12 +3,7 @@ import UserProductCard from "../components/UserProductCard";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 
-// reload after removing user item from database
-//databasdse state
-//when it chnages you reload display user products (redux)
-// after add it works
-
-function UserPage() {
+export default function UserPage() {
   const displayedProducts = useSelector(
     (state: RootState) => state.userProducts.userProducts
   );
@@ -41,5 +36,3 @@ function UserPage() {
     </div>
   );
 }
-
-export default UserPage;
