@@ -107,15 +107,6 @@
       "price": 1.99,
       "description": "It leads you through life's twists and turns, helping you find your way when the path seems uncertain.",
       "bought": false
-    },
-    {
-      "createdBy": "weqewqwe",
-      "image": "images/cloak.png",
-      "name": "gfhfg",
-      "description": "gfhghf",
-      "price": 55,
-      "bought": false,
-      "id": 13
     }
   ],
   "images": [
