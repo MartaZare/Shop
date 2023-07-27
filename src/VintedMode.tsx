@@ -7,20 +7,16 @@ export default function VintedMode() {
   const dispatch = useDispatch();
   const currentMode = useSelector((state: RootState) => state.mode);
 
-  const setVintedMode = () => {
-    document.body.setAttribute("data-theme", "vinted");
-  };
-
-  const setRPGMode = () => {
-    document.body.setAttribute("data-theme", "rpg");
+  const setMode = (mode: string) => {
+    document.body.setAttribute("data-theme", mode);
   };
 
   const toggleVintedTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.checked) {
-      setVintedMode();
+      setMode("vinted");
       dispatch(vinted());
     } else {
-      setRPGMode();
+      setMode("rpg");
       dispatch(rpg());
     }
   };

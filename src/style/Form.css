@@ -54,12 +54,13 @@
 }
 .form-field label {
   font-family: var(--title-font);
-  font-size: 20px;
+  font-size: 23px;
 }
 .form-field input,
 .form-field textarea,
 .form-field select {
   font-family: var(--main-font);
+  font-size: 20px;
   width: 50%;
   border-radius: 20px;
   padding: 3px;
@@ -71,5 +72,8 @@
 @media only screen and (max-width: 700px) {
   .form-field {
     width: 90%;
+  }
+  form {
+    margin-top: 10px;
   }
 }/*# sourceMappingURL=Form.css.map */

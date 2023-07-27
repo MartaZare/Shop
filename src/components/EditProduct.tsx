@@ -3,8 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { setUserProducts } from "../reducers/userProductsSlice";
-import { API_URL } from "../other/Constants";
+import { API_URL, CONTENT_TYPE } from "../other/Constants";
 import { Product, Image } from "../other/Types";
+import { getImages } from "../Api_calls";
 
 export default function EditProduct() {
   const navigate = useNavigate();
@@ -30,11 +31,7 @@ export default function EditProduct() {
   }, []);
 
   useEffect(() => {
-    fetch(`${API_URL}/images`)
-      .then((response) => response.json())
-      .then((json) => {
-        setImageDatabase(json);
-      });
+    getImages(setImageDatabase);
   }, []);
 
   const handleTitle = (event: ChangeEvent<HTMLInputElement>) => {
@@ -65,7 +62,7 @@ export default function EditProduct() {
         price: price,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Content-type": CONTENT_TYPE,
       },
     });
 

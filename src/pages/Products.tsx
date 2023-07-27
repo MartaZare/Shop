@@ -1,10 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { setUserProducts } from "../reducers/userProductsSlice";
 import ProductCard from "../components/ProductCard";
 import { API_URL } from "../other/Constants";
 import { Product } from "../other/Types";
+import {
+  changeProductBoughtState,
+  deleteFromDatabase,
+  getOriginalProductsCount,
+  getProducts,
+} from "../Api_calls";
 
 export default function Products() {
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
@@ -13,44 +19,25 @@ export default function Products() {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const dispatch = useDispatch();
 
-  const getProducts = useCallback(
-    (input: string, setter: (arg: Product[]) => void) => {
-      fetch(`${API_URL}/products${input}`)
-        .then((response) => response.json())
-        .then((json) => {
-          setter(json);
-        });
-    },
-    []
-  );
-
   useEffect(() => {
-    getProducts("", setAllProducts);
+    getProducts("products", "", setAllProducts);
   }, []);
 
   useEffect(() => {
-    getProducts("?bought=false", setDisplayedProducts);
+    getProducts("products", "?bought=false", setDisplayedProducts);
   }, [checkout]);
 
   async function displayOriginalProducts() {
     await Promise.all(
       allProducts.map((product) => {
-        fetch(`${API_URL}/products/${product.id}`, {
-          method: "PATCH",
-          body: JSON.stringify({
-            bought: false,
-          }),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        });
+        changeProductBoughtState(product, false);
       })
     );
 
-    for (let i = 13; i <= allProducts.length; i++) {
-      await fetch(`${API_URL}/products/${i}`, {
-        method: "DELETE",
-      });
+    let originalProductsCount = await getOriginalProductsCount();
+
+    for (let i = originalProductsCount + 1; i <= allProducts.length; i++) {
+      await deleteFromDatabase(i);
     }
 
     await fetch(`${API_URL}/products?createdBy=${currentUser}`)
@@ -59,7 +46,7 @@ export default function Products() {
         dispatch(setUserProducts(json));
       });
 
-    getProducts("", setDisplayedProducts);
+    getProducts("products", "", setDisplayedProducts);
   }
 
   return (

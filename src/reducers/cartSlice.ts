@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "../other/Types";
+import { produce } from "immer";
 
 const initialState: Product[] = [];
 
@@ -8,16 +9,18 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      state.push(action.payload);
+      return [...state, action.payload];
     },
 
     removeFromCart: (state, action) => {
       const { id } = action.payload;
-      const productToDelete = state.find((product) => product.id == id);
+      const productToDelete = state.find((product) => product.id === id);
 
       if (productToDelete) {
-        return state.filter((product) => product.id != id);
+        return state.filter((product) => product.id !== productToDelete.id);
       }
+
+      return state;
     },
   },
 });

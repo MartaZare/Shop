@@ -5,7 +5,7 @@ import { RootState } from "../store";
 import { removeFromCart } from "../reducers/cartSlice";
 import Checkout from "./Checkout";
 import { Product } from "../other/Types";
-import { API_URL } from "../other/Constants";
+import { changeProductBoughtState } from "../Api_calls";
 
 export default function ShoppingCart() {
   const [total, setTotal] = useState(0);
@@ -20,15 +20,7 @@ export default function ShoppingCart() {
 
   useEffect(() => {
     cartProducts.map((product) => {
-      fetch(`${API_URL}/products/${product.id}`, {
-        method: "PATCH",
-        body: JSON.stringify({
-          bought: true,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
+      changeProductBoughtState(product, true);
     });
   }, [checkout]);
 

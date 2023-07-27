@@ -5,6 +5,7 @@ import { API_URL } from "../other/Constants";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { addToCart } from "../reducers/cartSlice";
+import { getProducts } from "../Api_calls";
 
 interface ProductCardProps {
   image: string;
@@ -23,11 +24,7 @@ export default function ProductCard(props: ProductCardProps) {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch(`${API_URL}/products`)
-      .then((response) => response.json())
-      .then((json) => {
-        setAllProducts(json);
-      });
+    getProducts("products", "", setAllProducts);
   }, []);
 
   function addBtnClick(id: number) {

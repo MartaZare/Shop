@@ -1,16 +1,11 @@
-import {
-  ChangeEvent,
-  FormEvent,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { API_URL } from "../other/Constants";
 import { Image } from "../other/Types";
 import { RootState } from "../store";
 import { setUserProducts } from "../reducers/userProductsSlice";
+import { addToDatabase, getImages } from "../Api_calls";
 
 export default function AddProduct() {
   const [imageDatabase, setImageDatabase] = useState<Image[]>([]);
@@ -24,30 +19,13 @@ export default function AddProduct() {
   const [image, setImage] = useState("");
 
   useEffect(() => {
-    fetch(`${API_URL}/images`)
-      .then((response) => response.json())
-      .then((json) => {
-        setImageDatabase(json);
-      });
+    getImages(setImageDatabase);
   }, []);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    await fetch(`${API_URL}/products`, {
-      method: "POST",
-      body: JSON.stringify({
-        createdBy: currentUser,
-        image: image,
-        name: title,
-        description: description,
-        price: price,
-        bought: false,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
+    await addToDatabase(currentUser, image, title, description, price);
 
     await fetch(`${API_URL}/products?createdBy=${currentUser}`)
       .then((response) => response.json())

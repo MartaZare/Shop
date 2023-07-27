@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserProducts } from "../reducers/userProductsSlice";
 import { RootState } from "../store";
+import { deleteFromDatabase } from "../Api_calls";
 
 interface UserProductCardProps {
   image: string;
@@ -18,9 +19,7 @@ export default function UserProductCard(props: UserProductCardProps) {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
 
   async function handleDelete(id: number) {
-    await fetch(`${API_URL}/products/${id}`, {
-      method: "DELETE",
-    });
+    await deleteFromDatabase(id);
 
     await fetch(`${API_URL}/products?createdBy=${currentUser}`)
       .then((response) => response.json())
