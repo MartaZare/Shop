@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
-import VintedMode from "./VintedMode";
+import VintedMode from "./LightMode";
 
 export default function NavBar() {
   const [isVisible, setIsVisible] = useState(false);

@@ -36,20 +36,20 @@
   height: 24px;
   padding: 0;
   border-radius: 30px;
-  background-color: #f8bb22;
+  background-color: #ffffff;
   transition: all 0.2s ease;
 }
 
 .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #f8bb22;
+  background-color: #ffffff;
 }
 
 .react-toggle--checked .react-toggle-track {
-  background-color: #00747f;
+  background-color: #000000;
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #00747f;
+  background-color: #000000;
 }
 
 .react-toggle-track-check {
@@ -104,22 +104,18 @@
   left: 1px;
   width: 22px;
   height: 22px;
-  border: 1px solid #4d4d4d;
+  border: 1px solid #f8bb22;
   border-radius: 50%;
-  background-color: #fafafa;
+  background-color: #f8bb22;
   box-sizing: border-box;
   transition: all 0.25s ease;
 }
 
 .react-toggle--checked .react-toggle-thumb {
   left: 27px;
-  border-color: #19ab27;
+  background-color: #f8bb22;
 }
 
-.react-toggle--focus .react-toggle-thumb {
-  box-shadow: 0px 0px 2px 3px #0099e0;
-}
-
-.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
-  box-shadow: 0px 0px 5px 5px #0099e0;
+.mode-icon {
+  width: 20px;
 }/*# sourceMappingURL=Switch.css.map */

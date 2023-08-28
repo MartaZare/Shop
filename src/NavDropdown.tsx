@@ -1,6 +1,6 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
-import VintedMode from "./VintedMode";
+import VintedMode from "./LightMode";
 import { NavLink } from "react-router-dom";
 
 export default class NavDropdown extends React.Component {

@@ -4,15 +4,15 @@ export const modeSlice = createSlice({
   name: "mode",
   initialState: false,
   reducers: {
-    vinted: () => {
+    light: () => {
       return true;
     },
-    rpg: () => {
+    dark: () => {
       return false;
     },
   },
 });
 
-export const { vinted, rpg } = modeSlice.actions;
+export const { light, dark } = modeSlice.actions;
 
 export default modeSlice.reducer;
